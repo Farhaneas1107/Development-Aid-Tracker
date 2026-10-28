@@ -1,0 +1,291 @@
+{
+  "NAUE-01": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877110",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-02": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877766",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-03": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877779",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-04": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877831",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-05": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877843",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-06": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877850",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-07": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877857",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-08": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877862",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-09": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877868",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-10": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877874",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-11": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877879",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-12": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877884",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-13": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877889",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-14": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877894",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-15": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877900",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-16": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877905",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-17": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877910",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-18": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877915",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-19": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877920",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-20": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877925",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-21": {
+    "status": "not_applicable",
+    "starred": false,
+    "assignee": "It doesnt meet the criteria",
+    "checklist": {},
+    "updatedAt": "2026-10-28T16:37:38.857Z",
+    "updatedBy": "Team Reviewer",
+    "entries": [
+      {
+        "id": "rev_1793205458857_fj5sms",
+        "author": "Team Reviewer",
+        "verdict": "not_applicable",
+        "verdictLabel": "Not Applicable",
+        "text": "something is missing",
+        "isoTime": "2026-10-28T16:37:38.857Z",
+        "displayTime": "Oct 28, 2026, 05:37:38 PM"
+      }
+    ]
+  },
+  "NAUE-22": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877960",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-23": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877967",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-24": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877972",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-25": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877978",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-26": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877983",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-27": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877989",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-28": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.877994",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-29": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.878013",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-30": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.878019",
+    "updatedBy": "",
+    "entries": []
+  },
+  "NAUE-31": {
+    "status": "unreviewed",
+    "starred": false,
+    "assignee": "",
+    "checklist": {},
+    "updatedAt": "2026-10-28T17:37:38.878024",
+    "updatedBy": "",
+    "entries": []
+  }
+}

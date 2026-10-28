@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naue Geosynthetics — International Development Aid Opportunity Tracker</title>
+
+  <!-- Fonts & Leaflet Map CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <!-- Portal Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- TOP EXECUTIVE HEADER -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-mark">NAUE</div>
+        <div class="brand-titles">
+          <h1>
+            International Development Aid Opportunity Tracker
+            <span class="brand-pill">31 Programs · Batches 1–3</span>
+          </h1>
+          <p>Interactive Technical Scope, Geosynthetic Product Fit, Site Satellite Map &amp; Team Review Portal</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-header" id="cloud-sync-btn" title="Configure Firebase (Option A) or Google Sheets (Option B) Cloud Sync for GitHub Pages">
+          <span id="cloud-status-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#38bdf8"></span>
+          <span id="cloud-status-label">☁️ Cloud Sync</span>
+        </button>
+        <button class="btn btn-header" id="toggle-dashboard-btn" title="Collapse or expand charts">Hide Analytics</button>
+        <a class="btn btn-header" href="Naue_Project_Opportunity_Tracker.xlsx" download title="Download original Excel source file">⬇ Source .xlsx</a>
+        <button class="btn btn-header-primary" id="export-btn">⇄ Import / Export</button>
+        <button class="btn btn-header" id="theme-toggle-btn" title="Switch Light / Dark Reading Mode">◐ Theme</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PORTAL WORKSPACE -->
+  <main class="app-container">
+
+    <!-- PORTFOLIO EXECUTION CONTEXT BANNER -->
+    <div class="context-banner">
+      <div class="context-banner-left">
+        <span class="pulse-dot"></span>
+        <span>
+          <strong>Active Portfolio Notice:</strong> All <strong>31 documented programs</strong> across <em>Development Aid</em>, <em>Development Aid_2</em>, and <em>Development Aid_3</em>—including tenders with earlier planned dates where physical works have not yet commenced—are active for consultant specification and contractor pursuit.
+        </span>
+      </div>
+      <span style="font-size:12px;color:var(--text-muted);white-space:nowrap">Click any chart bar, badge, or KPI to filter</span>
+    </div>
+
+    <!-- COLLAPSIBLE EXECUTIVE ANALYTICS DASHBOARD -->
+    <section class="dashboard-section" id="dashboard-section">
+      <div class="kpi-grid" id="kpi-grid"></div>
+
+      <div class="analytics-grid">
+        <div class="analytics-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Programs by Naue Relevance Tier</h2>
+            <span class="panel-hint">Programs (Actionable Opps)</span>
+          </div>
+          <div class="bar-list" id="chart-tiers"></div>
+        </div>
+
+        <div class="analytics-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Naue Product Line Demand Across Portfolio</h2>
+            <span class="panel-hint">Click product to filter</span>
+          </div>
+          <div class="bar-list" id="chart-products"></div>
+        </div>
+
+        <div class="analytics-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Portfolio Footprint</h2>
+            <div class="mini-tabs">
+              <button class="mini-tab active" data-chart-dim="country">Country</button>
+              <button class="mini-tab" data-chart-dim="sector">Sector</button>
+              <button class="mini-tab" data-chart-dim="donor">Agency</button>
+            </div>
+          </div>
+          <div class="bar-list" id="chart-dimension"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MULTI-VIEW SWITCHER & SMART FILTER CONTROLS -->
+    <section class="controls-card">
+      <div class="view-switcher-row">
+        <div class="view-tabs">
+          <button class="view-tab active" data-view="cards">▦ Story Cards</button>
+          <button class="view-tab" data-view="table">☰ Comparison Table</button>
+          <button class="view-tab" data-view="map">🌍 Site &amp; Satellite Map</button>
+          <button class="view-tab" data-view="kanban">▤ Review Pipeline</button>
+          <button class="view-tab" data-view="reviews">
+            💬 All Reviews <span id="all-reviews-tab-count" class="tab-count-pill">0</span>
+          </button>
+          <button class="view-tab" data-view="products">◈ Naue Product Matrix</button>
+        </div>
+
+        <div class="results-summary" id="results-summary"></div>
+      </div>
+
+      <div class="filter-grid">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="filter-search"
+            placeholder="Search projects, cities, canal codes (LT-C4), loan IDs (88270), gabions, leachate, bridges..."
+          />
+          <button class="search-clear" id="search-clear-btn" title="Clear search">×</button>
+        </div>
+
+        <select class="filter-select" id="filter-tier" title="Filter by Naue Relevance">
+          <option value="all">All Relevance Tiers (31)</option>
+          <option value="top_priority">★ Very High &amp; High Only (12)</option>
+          <option value="actionable">Actionable Only (Excl. None) (29)</option>
+          <option value="Very High">Very High (3)</option>
+          <option value="High">High (9)</option>
+          <option value="Medium-to-High">Medium-to-High (4)</option>
+          <option value="Moderate">Moderate / Medium (6)</option>
+          <option value="Low-to-Medium">Low-to-Medium (3)</option>
+          <option value="Low">Low (4)</option>
+          <option value="None">None — Non-Civil (2)</option>
+        </select>
+
+        <select class="filter-select" id="filter-country" title="Filter by Country / Region"></select>
+        <select class="filter-select" id="filter-product" title="Filter by Naue Product"></select>
+        <select class="filter-select" id="filter-sector" title="Filter by Engineering Sector"></select>
+        <select class="filter-select" id="filter-channel" title="Filter by Sales Channel"></select>
+
+        <select class="filter-select" id="filter-review" title="Filter by Team Review Status">
+          <option value="all">All Review Statuses</option>
+          <option value="starred">★ Starred Bookmarks</option>
+          <option value="reviewed_any">Reviewed / Active</option>
+          <option value="unreviewed">Unreviewed</option>
+          <option value="pursuing">Pursuing (Priority)</option>
+          <option value="consultant_spec">Specify w/ Consultant</option>
+          <option value="contractor_bid">Target Contractors</option>
+          <option value="monitoring">Monitoring / Hold</option>
+          <option value="not_applicable">Not Applicable</option>
+        </select>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:9px;flex-wrap:wrap">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <select class="filter-select" id="filter-folder" style="width:auto"></select>
+          <select class="filter-select" id="filter-sort" style="width:auto">
+            <option value="relevance_desc">Sort: Highest Relevance First</option>
+            <option value="opps_desc">Sort: Most Actionable Opportunities</option>
+            <option value="subprojects_desc">Sort: Largest Tender Volume</option>
+            <option value="country_asc">Sort: Country (A–Z)</option>
+            <option value="seq_asc">Sort: Original Spreadsheet Order (Row 5–35)</option>
+          </select>
+        </div>
+        <button class="btn btn-outline" id="reset-filters-btn" style="padding:5px 11px;font-size:12px">Reset All Filters</button>
+      </div>
+
+      <div class="active-filters-bar" id="active-filters-bar" style="display:none">
+        <div class="filter-chips" id="filter-chips-list"></div>
+      </div>
+    </section>
+
+    <!-- DYNAMIC VIEW CONTAINER -->
+    <div id="view-container"></div>
+
+  </main>
+
+  <!-- DEEP-DIVE PROJECT DOSSIER DRAWER -->
+  <div class="dossier-backdrop" id="dossier-backdrop"></div>
+  <aside class="dossier-drawer" id="dossier-drawer" aria-label="Project Dossier">
+    <div class="dossier-topbar">
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="btn btn-outline" id="dossier-prev-btn" title="Previous Project (←)">← Prev</button>
+        <span id="dossier-nav-pos" style="font-size:12.5px;font-weight:700;color:var(--text-muted);padding:0 6px"></span>
+        <button class="btn btn-outline" id="dossier-next-btn" title="Next Project (→)">Next →</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="btn btn-outline" id="dossier-print-btn" title="Print or Save 1-Pager PDF Briefing">🖨 Print / PDF Brief</button>
+        <button class="btn btn-outline" id="dossier-fullscreen-btn">Full Width</button>
+        <button class="btn btn-primary" id="dossier-close-btn">✕ Close</button>
+      </div>
+    </div>
+    <div class="dossier-body" id="dossier-body"></div>
+  </aside>
+
+  <!-- FLOATING COMPARISON BAR -->
+  <div class="compare-floating-bar" id="compare-floating-bar">
+    <span id="compare-count-text">0 Selected</span>
+    <button class="btn btn-header-primary" id="open-compare-btn">Compare Side-by-Side</button>
+    <button class="btn btn-header" id="clear-compare-btn">Clear</button>
+  </div>
+
+  <!-- SIDE-BY-SIDE COMPARISON MODAL -->
+  <div class="modal-overlay" id="compare-modal">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <h2 style="margin:0;font-size:18px">Side-by-Side Opportunity Comparison</h2>
+        <button class="btn btn-outline" id="close-compare-modal">✕ Close</button>
+      </div>
+      <div id="compare-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- IMPORT / EXPORT MODAL -->
+  <div class="modal-overlay" id="io-modal">
+    <div class="modal-card" style="max-width:640px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <h2 style="margin:0;font-size:18px">Import Updated Document or Export Team Reviews</h2>
+        <button class="btn btn-outline" id="close-io-modal">✕ Close</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:10px;padding:16px">
+          <h3 style="margin:0 0 6px;font-size:14.5px">1. Export Reviewed Tracker (With Team Status &amp; Notes)</h3>
+          <p style="margin:0 0 12px;font-size:13px;color:var(--text-secondary)">
+            Download all programs combined with your team's review statuses, priority stars, assigned leads, and comments.
+          </p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" id="btn-export-xlsx">⬇ Export Styled Excel (.xlsx)</button>
+            <button class="btn btn-outline" id="btn-export-csv">⬇ Export Filtered CSV (.csv)</button>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:10px;padding:16px">
+          <h3 style="margin:0 0 6px;font-size:14.5px">2. Upload / Sync Updated Excel Document (.xlsx)</h3>
+          <p style="margin:0 0 12px;font-size:13px;color:var(--text-secondary)">
+            If you add new rows or batches to <code>Naue_Project_Opportunity_Tracker.xlsx</code>, upload it here to automatically parse new projects, products, and coordinates.
+          </p>
+          <input type="file" id="excel-file-input" accept=".xlsx,.xls,.csv" class="filter-select" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOUD SYNC CONFIGURATION MODAL (OPTION A: FIREBASE & OPTION B: GOOGLE SHEETS) -->
+  <div class="modal-overlay" id="cloud-modal">
+    <div class="modal-card" style="max-width:740px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <div>
+          <h2 style="margin:0;font-size:18px">☁️ Shared Cloud Review Sync (For Live GitHub Hosting)</h2>
+          <p style="margin:3px 0 0;font-size:12.5px;color:var(--text-muted)">
+            Choose either <strong>Option A (Firebase)</strong> or <strong>Option B (Google Sheets)</strong> so all reviewers on your GitHub Pages link share live statuses &amp; comments.
+          </p>
+        </div>
+        <button class="btn btn-outline" id="close-cloud-modal">✕ Close</button>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <!-- OPTION B: GOOGLE SHEETS -->
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:10px;padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <h3 style="margin:0;font-size:14.5px;color:var(--brand-primary)">Option B: Google Sheets Live Backend (100% Free · Recommended for Spreadsheet Teams)</h3>
+            <button class="btn btn-outline" id="copy-gsheet-script-btn" style="padding:4px 10px;font-size:11.5px">📋 Copy Google Apps Script</button>
+          </div>
+          <ol style="margin:0 0 10px;padding-left:18px;font-size:12.5px;color:var(--text-secondary);line-height:1.55">
+            <li>Open any Google Sheet → click <strong>Extensions → Apps Script</strong>.</li>
+            <li>Click <strong>📋 Copy Google Apps Script</strong> above (or open <code>google_sheets_backend.gs</code>), paste it into Apps Script, and click <strong>Deploy → New deployment → Web app</strong> (<em>Execute as: Me</em>, <em>Who has access: Anyone</em>).</li>
+            <li>Paste the resulting <code>https://script.google.com/macros/s/.../exec</code> URL below (and in <code>js/cloud-config.js</code> before pushing to GitHub):</li>
+          </ol>
+          <div style="display:flex;gap:8px">
+            <input type="url" id="cloud-gsheet-url" class="filter-select" placeholder="https://script.google.com/macros/s/.../exec" />
+            <button class="btn btn-primary" id="save-gsheet-btn">Connect Google Sheet</button>
+          </div>
+        </div>
+
+        <!-- OPTION A: FIREBASE REALTIME DB -->
+        <div style="background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:10px;padding:16px">
+          <h3 style="margin:0 0 6px;font-size:14.5px;color:var(--brand-primary)">Option A: Firebase Realtime Cloud Database (Instant JSON Sync)</h3>
+          <ol style="margin:0 0 10px;padding-left:18px;font-size:12.5px;color:var(--text-secondary);line-height:1.55">
+            <li>Go to <strong>console.firebase.google.com</strong> → Create a free project → <strong>Build → Realtime Database → Create Database</strong> (Start in <em>Test Mode</em>).</li>
+            <li>Copy your Database URL (e.g. <code>https://your-project-default-rtdb.firebaseio.com</code>) and paste it below (and in <code>js/cloud-config.js</code>):</li>
+          </ol>
+          <div style="display:flex;gap:8px">
+            <input type="url" id="cloud-firebase-url" class="filter-select" placeholder="https://your-project-default-rtdb.firebaseio.com" />
+            <button class="btn btn-primary" id="save-firebase-btn">Connect Firebase</button>
+          </div>
+        </div>
+
+        <!-- STATUS & MANUAL SYNC -->
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border-color);font-size:12.5px">
+          <span id="cloud-modal-status-text" style="color:var(--text-muted)">Current storage: Browser LocalStorage + Local Server</span>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-outline" id="cloud-sync-now-btn">🔄 Sync Now</button>
+            <button class="btn btn-outline" id="cloud-disconnect-btn">Disconnect Cloud</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST -->
+  <div class="toast" id="app-toast"></div>
+
+  <!-- External Libraries (Leaflet + SheetJS) with Graceful Fallback -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+  <!-- Portal Data & Application Scripts -->
+  <script src="js/cloud-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
+
