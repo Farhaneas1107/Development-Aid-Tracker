@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
   <!-- Portal Styles -->
-  <link rel="stylesheet" href="css/styles.css?v=2" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
 </head>
 
 <body>
@@ -89,6 +89,7 @@
             <h2 class="panel-title">Portfolio Footprint</h2>
             <div class="mini-tabs">
               <button class="mini-tab active" data-chart-dim="country">Country</button>
+              <button class="mini-tab" data-chart-dim="topic">Headers</button>
               <button class="mini-tab" data-chart-dim="sector">Sector</button>
               <button class="mini-tab" data-chart-dim="donor">Agency</button>
             </div>
@@ -114,6 +115,9 @@
 
         <div class="results-summary" id="results-summary"></div>
       </div>
+
+      <!-- 1-CLICK ENGINEERING TOPIC HEADERS BAR + GROUP BY HEADER TOGGLE -->
+      <div class="topic-headers-bar" id="topic-headers-bar"></div>
 
       <div class="filter-grid">
         <div class="search-box">
@@ -329,10 +333,10 @@
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <!-- Portal Data & Application Scripts -->
-  <script src="js/cloud-config.js?v=2"></script>
-  <script src="js/data.js?v=2"></script>
-  <script src="js/parser.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/cloud-config.js?v=3"></script>
+  <script src="js/data.js?v=3"></script>
+  <script src="js/parser.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
 </body>
 
 </html>

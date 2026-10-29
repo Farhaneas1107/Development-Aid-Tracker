@@ -102,20 +102,116 @@ function doPost(e) {
     "None": { cls: "rel-none", color: "#94a3b8" }
   };
 
+  const TOPIC_HEADERS = [
+    {
+      id: "landfill",
+      label: "Landfills & Dumpsite Capping",
+      shortLabel: "Landfills & Capping",
+      icon: "🗑️",
+      color: "#059669",
+      desc: "Sanitary landfill basal lining, new cell construction, dumpsite closure & capping, and LFG venting",
+      curatedIds: ["NAUE-02", "NAUE-08", "NAUE-09", "NAUE-13", "NAUE-22", "NAUE-23", "NAUE-27"],
+      rx: /\blandfill|dumpsite|basal\s+lin|capping\s+civil|landfill\s+gas|\blfg\b/i
+    },
+    {
+      id: "waste_leachate",
+      label: "Waste Management & Leachate",
+      shortLabel: "Waste Mgmt & Leachate",
+      icon: "♻️",
+      color: "#0d9488",
+      desc: "Solid waste management (SWM), leachate treatment lagoons, transfer stations & pollution containment",
+      curatedIds: ["NAUE-02", "NAUE-07", "NAUE-08", "NAUE-09", "NAUE-13", "NAUE-22", "NAUE-23", "NAUE-26", "NAUE-27"],
+      rx: /solid\s+waste|\bswm\b|leachate|transfer\s+station|waste\s+management|pollution\s+prevention/i
+    },
+    {
+      id: "irrigation_canals",
+      label: "Irrigation Canals, Weirs & Gabions",
+      shortLabel: "Irrigation & Canals",
+      icon: "🌊",
+      color: "#0284c7",
+      desc: "Earth & lined irrigation canals, stepped gabion protection walls, filter cloth, weirs & flood embankments",
+      curatedIds: ["NAUE-01", "NAUE-04", "NAUE-15", "NAUE-16", "NAUE-24", "NAUE-25", "NAUE-27", "NAUE-29"],
+      rx: /irrigation|canal|gabion|weir|flood\s+response|flood\s+prevention/i
+    },
+    {
+      id: "dams_reservoirs",
+      label: "Dams, Ponds & Water Harvesting",
+      shortLabel: "Dams & Reservoirs",
+      icon: "🏞️",
+      color: "#2563eb",
+      desc: "Embankment & hydropower dams, barrages, agricultural storage reservoirs, desert hafirs & farm ponds",
+      curatedIds: ["NAUE-04", "NAUE-05", "NAUE-15", "NAUE-24", "NAUE-25", "NAUE-26", "NAUE-28", "NAUE-29", "NAUE-31"],
+      rx: /\bdam\b|\bdams\b|barrage|reservoir|water[\s\-]harvesting|hafir|farm[\s\-]level.*pond|badia.*pond/i
+    },
+    {
+      id: "wastewater_stormwater",
+      label: "Wastewater (WWTP), Sludge & Stormwater",
+      shortLabel: "WWTP, Sludge & Water",
+      icon: "💧",
+      color: "#0891b2",
+      desc: "Wastewater treatment plants, sewage sludge drying beds & lagoons, percolation basins, stormwater & WTPs",
+      curatedIds: ["NAUE-03", "NAUE-06", "NAUE-11", "NAUE-13", "NAUE-14", "NAUE-17", "NAUE-19", "NAUE-22", "NAUE-25", "NAUE-26", "NAUE-27", "NAUE-28", "NAUE-31"],
+      rx: /\bwwtp\b|wastewater|sewage|sewerage|sludge|storm\s*water|percolation|sanitation|\bwash\b|water\s+purification/i
+    },
+    {
+      id: "roads_bridges_rail",
+      label: "Roads, Bridges & Railway Trackbeds",
+      shortLabel: "Roads, Bridges & Rail",
+      icon: "🛣️",
+      color: "#4f46e5",
+      desc: "Highways, rural & municipal streets, river/wadi bridge approaches, box culverts, railways & aviation",
+      curatedIds: ["NAUE-03", "NAUE-04", "NAUE-09", "NAUE-10", "NAUE-12", "NAUE-13", "NAUE-14", "NAUE-16", "NAUE-22", "NAUE-25", "NAUE-26", "NAUE-27"],
+      rx: /\broad\b|\broads\b|highway|expressway|bridge|culvert|street|railway|trackbed|transport\s+corridor/i
+    },
+    {
+      id: "coastal_marine",
+      label: "Coastal, Ports & Marine Protection",
+      shortLabel: "Coastal & Ports",
+      icon: "⚓",
+      color: "#ea580c",
+      desc: "Coastal erosion defense, Secutex® Soft Rock sand containers, marine scour & port rehabilitation",
+      curatedIds: ["NAUE-07", "NAUE-19", "NAUE-27", "NAUE-30"],
+      rx: /coastal|marine|\bport\s+sector|\bports\b|shoreline|revetment|soft\s*rock/i
+    },
+    {
+      id: "energy_containment",
+      label: "Energy, Substations & Oil Containment",
+      shortLabel: "Energy & Containment",
+      icon: "⚡",
+      color: "#d97706",
+      desc: "Refinery secondary oil bund containment, 132kV substations, solar & wind farm access roads/platforms",
+      curatedIds: ["NAUE-06", "NAUE-14", "NAUE-18", "NAUE-27", "NAUE-28"],
+      rx: /substation|refinery|oil\s+spill|secondary\s+containment|\bsolar\b|\bwind\b|132\s*kv/i
+    },
+    {
+      id: "non_civil",
+      label: "Policy & Non-Civil (No Geosynthetics)",
+      shortLabel: "Policy / Non-Civil",
+      icon: "📋",
+      color: "#64748b",
+      desc: "Pure institutional policy, knowledge-sharing & social/health grants with no civil construction scope",
+      curatedIds: ["NAUE-20", "NAUE-21"],
+      rx: /non-infrastructure|knowledge\s+sharing/i
+    }
+  ];
+
   const state = {
     payload: window.NAUE_INITIAL_DATA || { projects: [], productsCatalog: [] },
     reviews: {},
     serverConnected: false,
     view: "cards", // cards | table | map | kanban | reviews | products
+    groupByTopic: false,
+    collapsedTopics: {},
     reviewsHubLayout: "grouped", // grouped | feed
     reviewsAuthorFilter: "all",
-    chartDimension: "country", // country | sector | donor
+    chartDimension: "country", // country | topic | sector | donor
     dashboardCollapsed: false,
     compareIds: [],
     activeDossierId: null,
     dossierFullscreen: false,
     filters: {
       search: "",
+      topic: "all",
       tier: "all", // all | actionable | top_priority | specific tier
       country: "all",
       product: "all",
@@ -211,6 +307,38 @@ function doPost(e) {
         shortDesc: ""
       }
     );
+  }
+
+  function getTopicMeta(topicId) {
+    return (
+      TOPIC_HEADERS.find(t => t.id === topicId) || {
+        id: topicId,
+        label: topicId,
+        shortLabel: topicId,
+        icon: "📌",
+        color: "#0284c7",
+        desc: ""
+      }
+    );
+  }
+
+  function getProjectTopics(p) {
+    const isInitialCurated =
+      window.NAUE_INITIAL_DATA &&
+      window.NAUE_INITIAL_DATA.projects &&
+      window.NAUE_INITIAL_DATA.projects.some(orig => orig.id === p.id && orig.title === p.title);
+
+    if (isInitialCurated) {
+      const matched = TOPIC_HEADERS.filter(t => t.curatedIds.includes(p.id)).map(t => t.id);
+      if (matched.length > 0) return matched;
+    }
+
+    const combined = `${p.title || ""}\n${p.shortName || ""}\n${p.technicalScopeRaw || ""}\n${p.relevanceRaw || ""}\n${(p.sectors || []).join(" ")}`;
+    const dynamic = TOPIC_HEADERS.filter(t => t.id !== "non_civil" && t.rx.test(combined)).map(t => t.id);
+    if (dynamic.length === 0) {
+      return p.relevanceRank === 0 ? ["non_civil"] : ["wastewater_stormwater"];
+    }
+    return dynamic;
   }
 
   function normalizeReviewRecord(rec) {
@@ -547,6 +675,9 @@ function doPost(e) {
 
     const filtered = state.payload.projects.filter(p => {
       const rev = getReview(p.id);
+      const pTopics = getProjectTopics(p);
+
+      if (f.topic !== "all" && !pTopics.includes(f.topic)) return false;
 
       if (f.tier === "actionable" && p.relevanceRank === 0) return false;
       if (f.tier === "top_priority" && p.relevanceRank < 5) return false;
@@ -589,6 +720,7 @@ function doPost(e) {
           p.timelineRaw,
           p.relevanceRaw,
           p.products.join(" "),
+          pTopics.map(tid => getTopicMeta(tid).label).join(" "),
           rev.assignee,
           rev.entries.map(e => `${e.author} ${e.text}`).join(" ")
         ]
@@ -796,7 +928,14 @@ function doPost(e) {
     const dim = state.chartDimension;
     const counts = {};
     all.forEach(p => {
-      const arr = dim === "country" ? p.countries : dim === "sector" ? p.sectors : p.donors;
+      const arr =
+        dim === "country"
+          ? p.countries
+          : dim === "topic"
+          ? getProjectTopics(p)
+          : dim === "sector"
+          ? p.sectors
+          : p.donors;
       arr.forEach(item => {
         if (!counts[item]) counts[item] = { count: 0, opps: 0 };
         counts[item].count += 1;
@@ -806,24 +945,89 @@ function doPost(e) {
 
     const entries = Object.entries(counts)
       .sort((a, b) => b[1].count - a[1].count || b[1].opps - a[1].opps)
-      .slice(0, 7);
+      .slice(0, dim === "topic" ? 8 : 7);
     const maxVal = Math.max(...entries.map(e => e[1].count), 1);
 
     document.getElementById("chart-dimension").innerHTML = entries
       .map(([name, info]) => {
         const pct = (info.count / maxVal) * 100;
+        const tMeta = dim === "topic" ? getTopicMeta(name) : null;
+        const displayLabel = tMeta ? `${tMeta.icon} ${tMeta.shortLabel}` : name;
+        const barColor = tMeta ? tMeta.color : "#0284c7";
         const isSelected =
           (dim === "country" && state.filters.country === name) ||
+          (dim === "topic" && state.filters.topic === name) ||
           (dim === "sector" && state.filters.sector === name);
         return `
           <div class="bar-row ${isSelected ? 'selected' : ''}" data-dim-type="${dim}" data-dim-val="${escHtml(name)}">
-            <span class="bar-label" title="${escHtml(name)}">${escHtml(name)}</span>
-            <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:#0284c7"></div></div>
+            <span class="bar-label" title="${escHtml(tMeta ? tMeta.label : name)}">${escHtml(displayLabel)}</span>
+            <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
             <span class="bar-count">${info.count} (${info.opps})</span>
           </div>
         `;
       })
       .join("");
+  }
+
+  /* ========================================================================
+     RENDER 1-CLICK TOPIC HEADERS BAR & GROUP-BY TOGGLE
+     ======================================================================== */
+  function renderTopicHeadersBar() {
+    const barEl = document.getElementById("topic-headers-bar");
+    if (!barEl) return;
+
+    const allProjects = state.payload.projects;
+    const topicCounts = {};
+    TOPIC_HEADERS.forEach(t => (topicCounts[t.id] = 0));
+    allProjects.forEach(p => {
+      getProjectTopics(p).forEach(tid => {
+        topicCounts[tid] = (topicCounts[tid] || 0) + 1;
+      });
+    });
+
+    const activeTopic = state.filters.topic;
+
+    barEl.innerHTML = `
+      <div class="topic-pills-wrap">
+        <span class="topic-bar-label">Browse Headers:</span>
+        <button
+          type="button"
+          class="topic-pill ${activeTopic === "all" ? "active" : ""}"
+          data-topic-pill="all"
+          title="Show all programs across all topic headers"
+        >
+          All Headers <span class="topic-pill-count">${allProjects.length}</span>
+        </button>
+        ${TOPIC_HEADERS.map(t => {
+          const cnt = topicCounts[t.id] || 0;
+          if (cnt === 0) return "";
+          const isActive = activeTopic === t.id;
+          return `
+            <button
+              type="button"
+              class="topic-pill ${isActive ? "active" : ""}"
+              style="${isActive ? `background:${t.color};border-color:${t.color};color:#fff` : ""}"
+              data-topic-pill="${escHtml(t.id)}"
+              title="${escHtml(t.label)} — ${escHtml(t.desc)}"
+            >
+              <span>${t.icon}</span>
+              <span>${escHtml(t.shortLabel)}</span>
+              <span class="topic-pill-count">${cnt}</span>
+            </button>
+          `;
+        }).join("")}
+      </div>
+
+      <button
+        type="button"
+        class="group-by-toggle-btn ${state.groupByTopic ? "active" : ""}"
+        id="group-by-topic-btn"
+        title="Organize projects under collapsible category section headings"
+      >
+        <span>${state.groupByTopic ? "✓" : "▤"}</span>
+        <span>Group by Header</span>
+      </button>
+    `;
   }
 
   /* ========================================================================
@@ -839,6 +1043,10 @@ function doPost(e) {
 
     const chips = [];
     const f = state.filters;
+    if (f.topic !== "all") {
+      const tm = getTopicMeta(f.topic);
+      chips.push({ key: "topic", label: `Header: ${tm.icon} ${tm.label}` });
+    }
     if (f.search) chips.push({ key: "search", label: `Search: "${f.search}"` });
     if (f.tier !== "all") chips.push({ key: "tier", label: `Relevance: ${f.tier}` });
     if (f.country !== "all") chips.push({ key: "country", label: `Country: ${f.country}` });
@@ -863,8 +1071,136 @@ function doPost(e) {
   }
 
   /* ========================================================================
-     VIEW 1: EXECUTIVE STORY CARDS
+     VIEW 1: EXECUTIVE STORY CARDS (FLAT GRID OR GROUPED BY TOPIC HEADER)
      ======================================================================== */
+  function renderSingleCardHtml(p) {
+    const rev = getReview(p.id);
+    const isCompared = state.compareIds.includes(p.id);
+    const digestText = p.whyItMatters || p.scopeLead;
+    const pTopics = getProjectTopics(p);
+
+    return `
+      <article class="project-card ${rev.starred ? 'card-starred' : ''}" data-project-id="${p.id}">
+        <div>
+          <div class="card-top-bar">
+            <div class="card-meta-left">
+              <span class="id-tag">${escHtml(p.id)}</span>
+              <span class="rel-badge ${getTierBadgeClass(p.relevanceTier)}">${escHtml(p.relevanceTier)}</span>
+              <span class="batch-tag">${escHtml(p.folder)}</span>
+            </div>
+            <div class="card-quick-actions">
+              <button class="icon-btn ${rev.starred ? 'starred' : ''}" data-action="star" data-id="${p.id}" title="Bookmark / Priority Star">★</button>
+              <button class="icon-btn ${isCompared ? 'compared' : ''}" data-action="compare" data-id="${p.id}" title="Add to Side-by-Side Comparison">⇄</button>
+            </div>
+          </div>
+
+          <div class="card-country-row" style="margin-top:10px">
+            <span>📍 ${highlightSearch(escHtml(p.countryRaw))}</span>
+            <span style="color:var(--text-muted);font-weight:500">${escHtml(p.donors.join(" / ") || p.agencyShort)}</span>
+          </div>
+
+          <h2 class="card-title" data-action="open-dossier" data-id="${p.id}">
+            ${highlightSearch(escHtml(p.shortName))}
+          </h2>
+
+          <div class="card-topic-tags">
+            ${pTopics
+              .map(tid => {
+                const tm = getTopicMeta(tid);
+                const isAct = state.filters.topic === tid;
+                return `<button type="button" class="card-topic-tag ${isAct ? "active" : ""}" data-filter-topic="${escHtml(tid)}" title="Filter by header: ${escHtml(tm.label)}">${tm.icon} ${escHtml(tm.shortLabel)}</button>`;
+              })
+              .join("")}
+          </div>
+
+          <p class="card-digest" style="margin-top:8px">
+            ${highlightSearch(escHtml(digestText))}
+          </p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div class="card-metrics-strip">
+            <div class="metric-cell">
+              <span>Naue Opps</span>
+              <strong style="color:var(--tier-vhigh-text)">${p.stats.actionable} <span style="font-weight:500;color:var(--text-muted)">/ ${p.stats.total} pkgs</span></strong>
+            </div>
+            <div class="metric-cell">
+              <span>Channel</span>
+              <strong title="${escHtml(p.salesChannel)}">${escHtml(p.salesChannel.replace("Consultant / BoQ ", "BoQ ").replace(" Civil Works", ""))}</strong>
+            </div>
+            <div class="metric-cell">
+              <span>Scope / Budget</span>
+              <strong title="${escHtml(p.budget)}">${escHtml(p.budget)}</strong>
+            </div>
+          </div>
+
+          <div class="card-products">
+            ${
+              p.products.length
+                ? p.products
+                    .map(pid => {
+                      const info = getProductInfo(pid);
+                      return `<span class="prod-chip" data-filter-product="${escHtml(pid)}" title="Filter by ${escHtml(info.name)}">
+                        <span class="prod-dot" style="background:${info.color}"></span>${escHtml(info.name)}
+                      </span>`;
+                    })
+                    .join("")
+                : `<span style="font-size:11.5px;color:var(--text-muted)">No physical geosynthetic scope</span>`
+            }
+          </div>
+
+          <div class="card-footer">
+            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+              <select class="status-select-mini" data-status="${rev.status}" data-action="status-change" data-id="${p.id}">
+                ${REVIEW_STATUSES.map(
+                  s => `<option value="${s.id}" ${rev.status === s.id ? "selected" : ""}>${escHtml(s.label)}</option>`
+                ).join("")}
+              </select>
+              ${
+                rev.entries.length > 0
+                  ? `<button type="button" class="prod-chip" style="border-color:#059669;color:#047857" data-action="open-dossier" data-id="${p.id}" title="Click to read ${rev.entries.length} team review(s)">
+                      💬 ${rev.entries.length} Review${rev.entries.length > 1 ? "s" : ""}
+                    </button>`
+                  : ""
+              }
+            </div>
+            <button class="btn btn-outline" style="padding:5px 11px;font-size:12px" data-action="open-dossier" data-id="${p.id}">
+              Read Full Details →
+            </button>
+          </div>
+          ${
+            rev.entries.length > 0
+              ? `<div class="kanban-review-snippet" style="margin-top:0;cursor:pointer" data-action="open-dossier" data-id="${p.id}">
+                  <div class="kanban-review-meta">
+                    <strong>👤 ${escHtml(rev.entries[0].author)}</strong>
+                    <span>🕒 ${escHtml(rev.entries[0].displayTime)}</span>
+                  </div>
+                  <div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                    "${escHtml(rev.entries[0].text)}"
+                  </div>
+                </div>`
+              : ""
+          }
+        </div>
+      </article>
+    `;
+  }
+
+  function getActiveTopicSections(projects) {
+    const candidateTopics =
+      state.filters.topic !== "all"
+        ? TOPIC_HEADERS.filter(t => t.id === state.filters.topic)
+        : TOPIC_HEADERS;
+
+    return candidateTopics
+      .map(topic => {
+        const items = projects.filter(p => getProjectTopics(p).includes(topic.id));
+        const actionable = items.reduce((s, p) => s + p.stats.actionable, 0);
+        return { topic, items, actionable };
+      })
+      .filter(sec => sec.items.length > 0);
+  }
+
   function renderCardsView(projects) {
     const container = document.getElementById("view-container");
     if (projects.length === 0) {
@@ -872,122 +1208,124 @@ function doPost(e) {
       return;
     }
 
-    container.innerHTML = `<div class="cards-grid">${projects
-      .map(p => {
-        const rev = getReview(p.id);
-        const isCompared = state.compareIds.includes(p.id);
-        const digestText = p.whyItMatters || p.scopeLead;
-
-        return `
-          <article class="project-card ${rev.starred ? 'card-starred' : ''}" data-project-id="${p.id}">
-            <div>
-              <div class="card-top-bar">
-                <div class="card-meta-left">
-                  <span class="id-tag">${escHtml(p.id)}</span>
-                  <span class="rel-badge ${getTierBadgeClass(p.relevanceTier)}">${escHtml(p.relevanceTier)}</span>
-                  <span class="batch-tag">${escHtml(p.folder)}</span>
-                </div>
-                <div class="card-quick-actions">
-                  <button class="icon-btn ${rev.starred ? 'starred' : ''}" data-action="star" data-id="${p.id}" title="Bookmark / Priority Star">★</button>
-                  <button class="icon-btn ${isCompared ? 'compared' : ''}" data-action="compare" data-id="${p.id}" title="Add to Side-by-Side Comparison">⇄</button>
-                </div>
-              </div>
-
-              <div class="card-country-row" style="margin-top:10px">
-                <span>📍 ${highlightSearch(escHtml(p.countryRaw))}</span>
-                <span style="color:var(--text-muted);font-weight:500">${escHtml(p.donors.join(" / ") || p.agencyShort)}</span>
-              </div>
-
-              <h2 class="card-title" data-action="open-dossier" data-id="${p.id}">
-                ${highlightSearch(escHtml(p.shortName))}
-              </h2>
-
-              <p class="card-digest" style="margin-top:7px">
-                ${highlightSearch(escHtml(digestText))}
-              </p>
-            </div>
-
-            <div style="display:flex;flex-direction:column;gap:11px">
-              <div class="card-metrics-strip">
-                <div class="metric-cell">
-                  <span>Naue Opps</span>
-                  <strong style="color:var(--tier-vhigh-text)">${p.stats.actionable} <span style="font-weight:500;color:var(--text-muted)">/ ${p.stats.total} pkgs</span></strong>
-                </div>
-                <div class="metric-cell">
-                  <span>Channel</span>
-                  <strong title="${escHtml(p.salesChannel)}">${escHtml(p.salesChannel.replace("Consultant / BoQ ", "BoQ ").replace(" Civil Works", ""))}</strong>
-                </div>
-                <div class="metric-cell">
-                  <span>Scope / Budget</span>
-                  <strong title="${escHtml(p.budget)}">${escHtml(p.budget)}</strong>
-                </div>
-              </div>
-
-              <div class="card-products">
-                ${
-                  p.products.length
-                    ? p.products
-                        .map(pid => {
-                          const info = getProductInfo(pid);
-                          return `<span class="prod-chip" data-filter-product="${escHtml(pid)}" title="Filter by ${escHtml(info.name)}">
-                            <span class="prod-dot" style="background:${info.color}"></span>${escHtml(info.name)}
-                          </span>`;
-                        })
-                        .join("")
-                    : `<span style="font-size:11.5px;color:var(--text-muted)">No physical geosynthetic scope</span>`
-                }
-              </div>
-
-              <div class="card-footer">
-                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
-                  <select class="status-select-mini" data-status="${rev.status}" data-action="status-change" data-id="${p.id}">
-                    ${REVIEW_STATUSES.map(
-                      s => `<option value="${s.id}" ${rev.status === s.id ? "selected" : ""}>${escHtml(s.label)}</option>`
-                    ).join("")}
-                  </select>
-                  ${
-                    rev.entries.length > 0
-                      ? `<button type="button" class="prod-chip" style="border-color:#059669;color:#047857" data-action="open-dossier" data-id="${p.id}" title="Click to read ${rev.entries.length} team review(s)">
-                          💬 ${rev.entries.length} Review${rev.entries.length > 1 ? "s" : ""}
-                        </button>`
-                      : ""
-                  }
-                </div>
-                <button class="btn btn-outline" style="padding:5px 11px;font-size:12px" data-action="open-dossier" data-id="${p.id}">
-                  Read Full Details →
-                </button>
-              </div>
-              ${
-                rev.entries.length > 0
-                  ? `<div class="kanban-review-snippet" style="margin-top:0;cursor:pointer" data-action="open-dossier" data-id="${p.id}">
-                      <div class="kanban-review-meta">
-                        <strong>👤 ${escHtml(rev.entries[0].author)}</strong>
-                        <span>🕒 ${escHtml(rev.entries[0].displayTime)}</span>
-                      </div>
-                      <div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
-                        "${escHtml(rev.entries[0].text)}"
-                      </div>
-                    </div>`
-                  : ""
-              }
-            </div>
-          </article>
-        `;
-      })
-      .join("")}</div>`;
-  }
-
-  /* ========================================================================
-     VIEW 2: STRUCTURED COMPARISON TABLE
-     ======================================================================== */
-  function renderTableView(projects) {
-    const container = document.getElementById("view-container");
-    if (projects.length === 0) {
-      container.innerHTML = renderEmptyState();
+    if (!state.groupByTopic) {
+      container.innerHTML = `<div class="cards-grid">${projects.map(renderSingleCardHtml).join("")}</div>`;
       return;
     }
 
+    const sections = getActiveTopicSections(projects);
     container.innerHTML = `
+      <div class="topic-group-toolbar">
+        <div>
+          <strong>▤ Grouped by Topic Header:</strong> Showing <strong>${sections.length}</strong> ${sections.length === 1 ? "Category" : "Categories"}
+          <span style="color:var(--text-muted);font-size:12px;margin-left:6px">(Multi-sector programs appear under each applicable engineering header)</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-action="expand-all-topics">Expand All</button>
+          <button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-action="collapse-all-topics">Collapse All</button>
+        </div>
+      </div>
+      ${sections
+        .map(({ topic, items, actionable }) => {
+          const isCollapsed = Boolean(state.collapsedTopics[topic.id]);
+          return `
+            <section class="topic-section-group ${isCollapsed ? "collapsed" : ""}" style="border-left:4px solid ${topic.color}">
+              <div class="topic-section-header" data-toggle-topic-sec="${escHtml(topic.id)}">
+                <div>
+                  <div class="topic-section-title-group">
+                    <span class="topic-section-chevron">▾</span>
+                    <h2 class="topic-section-title">
+                      <span>${topic.icon}</span>
+                      <span>${escHtml(topic.label)}</span>
+                    </h2>
+                  </div>
+                  <div class="topic-section-desc">${escHtml(topic.desc)}</div>
+                </div>
+                <div class="topic-section-meta">
+                  <span class="rel-badge rel-high" style="background:var(--bg-surface)">${items.length} Program${items.length > 1 ? "s" : ""}</span>
+                  <span class="rel-badge rel-very-high">${actionable} Actionable Opps</span>
+                  ${
+                    state.filters.topic !== topic.id
+                      ? `<button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-filter-topic="${escHtml(topic.id)}">Filter Only →</button>`
+                      : `<button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-filter-topic="all">Show All Headers</button>`
+                  }
+                </div>
+              </div>
+              <div class="topic-section-body">
+                <div class="cards-grid">${items.map(renderSingleCardHtml).join("")}</div>
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    `;
+  }
+
+  /* ========================================================================
+     VIEW 2: STRUCTURED COMPARISON TABLE (FLAT OR GROUPED BY TOPIC HEADER)
+     ======================================================================== */
+  function renderSingleTableRowHtml(p) {
+    const rev = getReview(p.id);
+    const pTopics = getProjectTopics(p);
+    return `
+      <tr>
+        <td>
+          <div style="display:flex;align-items:center;gap:5px">
+            <button class="icon-btn ${rev.starred ? 'starred' : ''}" style="width:24px;height:24px;font-size:12px" data-action="star" data-id="${p.id}">★</button>
+            <span class="id-tag">${escHtml(p.id)}</span>
+          </div>
+        </td>
+        <td><span class="rel-badge ${getTierBadgeClass(p.relevanceTier)}">${escHtml(p.relevanceTier)}</span></td>
+        <td>
+          <div style="font-weight:700;color:var(--text-primary)">${highlightSearch(escHtml(p.countryRaw))}</div>
+          <div style="font-size:11px;color:var(--text-muted)">${escHtml(p.folder)}</div>
+        </td>
+        <td style="max-width:360px">
+          <div style="font-weight:700;color:var(--brand-primary);cursor:pointer" data-action="open-dossier" data-id="${p.id}">
+            ${highlightSearch(escHtml(p.shortName))}
+          </div>
+          <div class="card-topic-tags" style="margin-top:4px">
+            ${pTopics
+              .map(tid => {
+                const tm = getTopicMeta(tid);
+                return `<button type="button" class="card-topic-tag ${state.filters.topic === tid ? "active" : ""}" style="font-size:10.5px;padding:1px 6px" data-filter-topic="${escHtml(tid)}">${tm.icon} ${escHtml(tm.shortLabel)}</button>`;
+              })
+              .join("")}
+          </div>
+          <div style="font-size:11.5px;color:var(--text-muted);margin-top:3px">${escHtml(p.procuringOrgRaw.slice(0, 95))}${p.procuringOrgRaw.length > 95 ? "…" : ""}</div>
+        </td>
+        <td>
+          <strong style="font-size:14px;color:var(--tier-vhigh-text)">${p.stats.actionable}</strong>
+          <span style="color:var(--text-muted);font-size:12px"> / ${p.stats.total}</span>
+          <div style="font-size:11px;color:var(--text-muted)">${escHtml(p.budget)}</div>
+        </td>
+        <td style="max-width:250px">
+          <div style="display:flex;flex-wrap:wrap;gap:4px">
+            ${p.products
+              .map(pid => `<span class="prod-chip" data-filter-product="${escHtml(pid)}">${escHtml(pid)}®</span>`)
+              .join("") || '<span style="color:var(--text-muted);font-size:11.5px">—</span>'}
+          </div>
+        </td>
+        <td>
+          <div style="font-weight:600;font-size:12px">${escHtml(p.salesChannel)}</div>
+          <div style="font-size:11.5px;color:var(--text-muted)">${escHtml(p.timelineTag)}</div>
+        </td>
+        <td>
+          <select class="status-select-mini" data-status="${rev.status}" data-action="status-change" data-id="${p.id}">
+            ${REVIEW_STATUSES.map(
+              s => `<option value="${s.id}" ${rev.status === s.id ? "selected" : ""}>${escHtml(s.label)}</option>`
+            ).join("")}
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-outline" style="padding:5px 10px;font-size:12px" data-action="open-dossier" data-id="${p.id}">Open</button>
+        </td>
+      </tr>
+    `;
+  }
+
+  function renderTableMarkup(rowsList) {
+    return `
       <div class="table-wrapper">
         <table class="tracker-table">
           <thead>
@@ -995,7 +1333,7 @@ function doPost(e) {
               <th>ID</th>
               <th data-sort-col="relevance_desc">Relevance ▾</th>
               <th data-sort-col="country_asc">Country / Batch</th>
-              <th>Program & Procuring Agency</th>
+              <th>Program, Headers & Procuring Agency</th>
               <th data-sort-col="opps_desc">Naue Opps ▾</th>
               <th>Applicable Naue Products</th>
               <th>Sales Channel & Timeline</th>
@@ -1004,61 +1342,64 @@ function doPost(e) {
             </tr>
           </thead>
           <tbody>
-            ${projects
-              .map(p => {
-                const rev = getReview(p.id);
-                return `
-                  <tr>
-                    <td>
-                      <div style="display:flex;align-items:center;gap:5px">
-                        <button class="icon-btn ${rev.starred ? 'starred' : ''}" style="width:24px;height:24px;font-size:12px" data-action="star" data-id="${p.id}">★</button>
-                        <span class="id-tag">${escHtml(p.id)}</span>
-                      </div>
-                    </td>
-                    <td><span class="rel-badge ${getTierBadgeClass(p.relevanceTier)}">${escHtml(p.relevanceTier)}</span></td>
-                    <td>
-                      <div style="font-weight:700;color:var(--text-primary)">${highlightSearch(escHtml(p.countryRaw))}</div>
-                      <div style="font-size:11px;color:var(--text-muted)">${escHtml(p.folder)}</div>
-                    </td>
-                    <td style="max-width:340px">
-                      <div style="font-weight:700;color:var(--brand-primary);cursor:pointer" data-action="open-dossier" data-id="${p.id}">
-                        ${highlightSearch(escHtml(p.shortName))}
-                      </div>
-                      <div style="font-size:11.5px;color:var(--text-muted);margin-top:2px">${escHtml(p.procuringOrgRaw.slice(0, 95))}${p.procuringOrgRaw.length > 95 ? "…" : ""}</div>
-                    </td>
-                    <td>
-                      <strong style="font-size:14px;color:var(--tier-vhigh-text)">${p.stats.actionable}</strong>
-                      <span style="color:var(--text-muted);font-size:12px"> / ${p.stats.total}</span>
-                      <div style="font-size:11px;color:var(--text-muted)">${escHtml(p.budget)}</div>
-                    </td>
-                    <td style="max-width:250px">
-                      <div style="display:flex;flex-wrap:wrap;gap:4px">
-                        ${p.products
-                          .map(pid => `<span class="prod-chip" data-filter-product="${escHtml(pid)}">${escHtml(pid)}®</span>`)
-                          .join("") || '<span style="color:var(--text-muted);font-size:11.5px">—</span>'}
-                      </div>
-                    </td>
-                    <td>
-                      <div style="font-weight:600;font-size:12px">${escHtml(p.salesChannel)}</div>
-                      <div style="font-size:11.5px;color:var(--text-muted)">${escHtml(p.timelineTag)}</div>
-                    </td>
-                    <td>
-                      <select class="status-select-mini" data-status="${rev.status}" data-action="status-change" data-id="${p.id}">
-                        ${REVIEW_STATUSES.map(
-                          s => `<option value="${s.id}" ${rev.status === s.id ? "selected" : ""}>${escHtml(s.label)}</option>`
-                        ).join("")}
-                      </select>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline" style="padding:5px 10px;font-size:12px" data-action="open-dossier" data-id="${p.id}">Open</button>
-                    </td>
-                  </tr>
-                `;
-              })
-              .join("")}
+            ${rowsList.map(renderSingleTableRowHtml).join("")}
           </tbody>
         </table>
       </div>
+    `;
+  }
+
+  function renderTableView(projects) {
+    const container = document.getElementById("view-container");
+    if (projects.length === 0) {
+      container.innerHTML = renderEmptyState();
+      return;
+    }
+
+    if (!state.groupByTopic) {
+      container.innerHTML = renderTableMarkup(projects);
+      return;
+    }
+
+    const sections = getActiveTopicSections(projects);
+    container.innerHTML = `
+      <div class="topic-group-toolbar">
+        <div>
+          <strong>▤ Grouped Table by Topic Header:</strong> Showing <strong>${sections.length}</strong> ${sections.length === 1 ? "Category" : "Categories"}
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-action="expand-all-topics">Expand All</button>
+          <button type="button" class="btn btn-outline" style="padding:4px 10px;font-size:11.5px" data-action="collapse-all-topics">Collapse All</button>
+        </div>
+      </div>
+      ${sections
+        .map(({ topic, items, actionable }) => {
+          const isCollapsed = Boolean(state.collapsedTopics[topic.id]);
+          return `
+            <section class="topic-section-group ${isCollapsed ? "collapsed" : ""}" style="border-left:4px solid ${topic.color}">
+              <div class="topic-section-header" data-toggle-topic-sec="${escHtml(topic.id)}">
+                <div>
+                  <div class="topic-section-title-group">
+                    <span class="topic-section-chevron">▾</span>
+                    <h2 class="topic-section-title">
+                      <span>${topic.icon}</span>
+                      <span>${escHtml(topic.label)}</span>
+                    </h2>
+                  </div>
+                  <div class="topic-section-desc">${escHtml(topic.desc)}</div>
+                </div>
+                <div class="topic-section-meta">
+                  <span class="rel-badge rel-high" style="background:var(--bg-surface)">${items.length} Program${items.length > 1 ? "s" : ""}</span>
+                  <span class="rel-badge rel-very-high">${actionable} Actionable Opps</span>
+                </div>
+              </div>
+              <div class="topic-section-body" style="padding:12px">
+                ${renderTableMarkup(items)}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
     `;
   }
 
@@ -1758,6 +2099,15 @@ function doPost(e) {
           <strong>📍 Country & Location:</strong> ${escHtml(project.countryRaw)} — ${formatEngineeringText(project.locationRaw)}
         </div>
 
+        <div class="card-topic-tags" style="margin-top:8px">
+          ${getProjectTopics(project)
+            .map(tid => {
+              const tm = getTopicMeta(tid);
+              return `<button type="button" class="card-topic-tag no-print" data-dossier-topic="${escHtml(tid)}" title="Filter portal by ${escHtml(tm.label)}">${tm.icon} ${escHtml(tm.label)}</button>`;
+            })
+            .join("")}
+        </div>
+
         <div class="ref-chips">
           ${project.tenderCodes
             .map(
@@ -2169,6 +2519,16 @@ ${escHtml(project.relevanceRaw)}
       };
     });
 
+    bodyEl.querySelectorAll("[data-dossier-topic]").forEach(btn => {
+      btn.onclick = () => {
+        const tid = btn.getAttribute("data-dossier-topic");
+        state.filters.topic = tid;
+        closeDossier();
+        if (state.view === "reviews" || state.view === "products") state.view = "cards";
+        renderAll();
+      };
+    });
+
     document.getElementById("dossier-backdrop").classList.add("open");
     document.getElementById("dossier-drawer").classList.add("open");
   }
@@ -2256,6 +2616,7 @@ ${escHtml(project.relevanceRaw)}
      ======================================================================== */
   function renderAll() {
     syncFilterControlsUI();
+    renderTopicHeadersBar();
     const filtered = getFilteredProjects();
     renderDashboard(filtered);
     renderActiveFilterChips(filtered);
@@ -2282,6 +2643,7 @@ ${escHtml(project.relevanceRaw)}
   function resetFilters() {
     state.filters = {
       search: "",
+      topic: "all",
       tier: "all",
       country: "all",
       product: "all",
@@ -2361,6 +2723,7 @@ ${escHtml(project.relevanceRaw)}
         const type = dimRow.getAttribute("data-dim-type");
         const val = dimRow.getAttribute("data-dim-val");
         if (type === "country") state.filters.country = state.filters.country === val ? "all" : val;
+        else if (type === "topic") state.filters.topic = state.filters.topic === val ? "all" : val;
         else if (type === "sector") state.filters.sector = state.filters.sector === val ? "all" : val;
         else if (type === "donor") state.filters.search = state.filters.search === val ? "" : val;
         renderAll();
@@ -2372,6 +2735,31 @@ ${escHtml(project.relevanceRaw)}
         document.querySelectorAll("[data-chart-dim]").forEach(b => b.classList.remove("active"));
         miniTab.classList.add("active");
         renderDimensionChart(state.payload.projects);
+      }
+    });
+
+    // 1-Click Topic Headers Bar & Group-by-Header Toggle
+    document.getElementById("topic-headers-bar")?.addEventListener("click", e => {
+      const pill = e.target.closest("[data-topic-pill]");
+      if (pill) {
+        const val = pill.getAttribute("data-topic-pill");
+        state.filters.topic = val === "all" ? "all" : state.filters.topic === val ? "all" : val;
+        if (state.view === "products") state.view = "cards";
+        renderAll();
+        return;
+      }
+      const groupBtn = e.target.closest("#group-by-topic-btn");
+      if (groupBtn) {
+        state.groupByTopic = !state.groupByTopic;
+        if (state.groupByTopic && state.view !== "cards" && state.view !== "table") {
+          state.view = "cards";
+        }
+        renderAll();
+        showToast(
+          state.groupByTopic
+            ? "Grouped projects under collapsible Topic Headers"
+            : "Switched back to flat project list"
+        );
       }
     });
 
@@ -2456,6 +2844,32 @@ ${escHtml(project.relevanceRaw)}
           }
           state.compareIds.push(id);
         }
+        renderAll();
+        return;
+      }
+      const topicTag = e.target.closest("[data-filter-topic]");
+      if (topicTag) {
+        const tid = topicTag.getAttribute("data-filter-topic");
+        state.filters.topic = tid === "all" ? "all" : state.filters.topic === tid ? "all" : tid;
+        renderAll();
+        return;
+      }
+      if (e.target.closest("[data-action='expand-all-topics']")) {
+        state.collapsedTopics = {};
+        renderAll();
+        return;
+      }
+      if (e.target.closest("[data-action='collapse-all-topics']")) {
+        TOPIC_HEADERS.forEach(t => {
+          state.collapsedTopics[t.id] = true;
+        });
+        renderAll();
+        return;
+      }
+      const secHeader = e.target.closest("[data-toggle-topic-sec]");
+      if (secHeader) {
+        const tid = secHeader.getAttribute("data-toggle-topic-sec");
+        state.collapsedTopics[tid] = !state.collapsedTopics[tid];
         renderAll();
         return;
       }
