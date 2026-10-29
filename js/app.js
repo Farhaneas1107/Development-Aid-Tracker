@@ -7,6 +7,8 @@
   const STORAGE_KEY_THEME = "naue_portal_theme";
   const STORAGE_KEY_CLOUD = "naue_portal_cloud_settings_v1";
   const STORAGE_KEY_AUTHOR = "naue_reviewer_name_v1";
+  const DEFAULT_GSHEET_URL =
+    "https://script.google.com/macros/s/AKfycbxpnNWCpok61AJrLubZUlrnikFeQARHsancCsgA_ojbqQSk9XBHw0uP5lVssgLWrsmW/exec";
 
   const GSHEET_SCRIPT_TEMPLATE = `var SUMMARY_SHEET = "Team_Reviews";
 var LOG_SHEET = "All_Reviews_Log";
@@ -350,7 +352,10 @@ function doPost(e) {
     try {
       saved = JSON.parse(localStorage.getItem(STORAGE_KEY_CLOUD) || "{}");
     } catch (e) {}
-    const gsheetUrl = (saved.googleSheetsWebAppUrl || cfg.googleSheetsWebAppUrl || "").trim();
+    const hasCustomFirebase = Boolean(saved.firebaseDatabaseUrl && !saved.googleSheetsWebAppUrl);
+    const gsheetUrl = hasCustomFirebase
+      ? ""
+      : (saved.googleSheetsWebAppUrl || cfg.googleSheetsWebAppUrl || DEFAULT_GSHEET_URL).trim();
     const firebaseUrl = (saved.firebaseDatabaseUrl || cfg.firebaseDatabaseUrl || "").trim().replace(/\/+$/, "");
     let activeProvider = "local";
     if (gsheetUrl) activeProvider = "google_sheets";
@@ -366,13 +371,13 @@ function doPost(e) {
     const gInp = document.getElementById("cloud-gsheet-url");
     const fInp = document.getElementById("cloud-firebase-url");
 
-    if (gInp && !gInp.value && gsheetUrl) gInp.value = gsheetUrl;
-    if (fInp && !fInp.value && firebaseUrl) fInp.value = firebaseUrl;
+    if (gInp && gsheetUrl) gInp.value = gsheetUrl;
+    if (fInp && firebaseUrl) fInp.value = firebaseUrl;
 
     if (activeProvider === "google_sheets") {
       if (dot) dot.style.background = "#10b981";
       if (label) label.textContent = "☁️ Google Sheets Live";
-      if (modalText) modalText.innerHTML = `<strong style="color:#10b981">● Connected to Google Sheets Multi-Reviewer Backend (Option B)</strong>`;
+      if (modalText) modalText.innerHTML = `<strong style="color:#10b981">● Connected by default to shared Google Sheets Backend (Auto-Sync Active)</strong>`;
     } else if (activeProvider === "firebase") {
       if (dot) dot.style.background = "#10b981";
       if (label) label.textContent = "☁️ Firebase Live";
@@ -419,12 +424,28 @@ function doPost(e) {
     const { activeProvider, gsheetUrl, firebaseUrl } = getCloudSettings();
     try {
       if (activeProvider === "google_sheets" && gsheetUrl) {
+        let payloadReviews = {};
+        if (changedProjectId) {
+          payloadReviews[changedProjectId] = getReview(changedProjectId);
+        } else {
+          for (const [pid, rawRec] of Object.entries(state.reviews)) {
+            const rec = normalizeReviewRecord(rawRec);
+            const hasActivity =
+              rec.status !== "unreviewed" ||
+              rec.starred ||
+              Boolean(rec.assignee) ||
+              rec.entries.length > 0 ||
+              Object.values(rec.checklist || {}).some(Boolean);
+            if (hasActivity) payloadReviews[pid] = rec;
+          }
+        }
+        if (Object.keys(payloadReviews).length === 0) return;
         // Google Apps Script uses LockService + mergeProjectRecord by unique entry ID
         await fetch(gsheetUrl, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify({ reviews: state.reviews })
+          body: JSON.stringify({ reviews: payloadReviews })
         });
       } else if (activeProvider === "firebase" && firebaseUrl) {
         if (changedProjectId) {
@@ -2543,12 +2564,18 @@ ${escHtml(project.relevanceRaw)}
       await pushReviewsToCloud();
       await pullReviewsFromCloud(false);
     });
-    document.getElementById("cloud-disconnect-btn")?.addEventListener("click", () => {
+    document.getElementById("cloud-disconnect-btn")?.addEventListener("click", async () => {
       localStorage.removeItem(STORAGE_KEY_CLOUD);
       document.getElementById("cloud-gsheet-url").value = "";
       document.getElementById("cloud-firebase-url").value = "";
       updateCloudStatusUI();
-      showToast("Disconnected cloud sync (using LocalStorage)");
+      const { activeProvider } = getCloudSettings();
+      if (activeProvider === "google_sheets") {
+        await pullReviewsFromCloud(true);
+        showToast("Restored default shared Google Sheets connection!");
+      } else {
+        showToast("Disconnected cloud sync (using LocalStorage)");
+      }
     });
 
     // Export & Import Modal
@@ -2634,22 +2661,24 @@ ${escHtml(project.relevanceRaw)}
         renderAll();
       }
     } catch (e) {
-      // On GitHub Pages, also try loading committed data/team_reviews.json baseline if present
-      try {
-        const staticRev = await fetch("data/team_reviews.json", { cache: "no-store" });
-        if (staticRev.ok) {
-          const jsonRev = await staticRev.json();
-          if (jsonRev && typeof jsonRev === "object") {
-            state.reviews = mergeReviewsMaps(jsonRev, state.reviews);
-            renderAll();
+      // On GitHub Pages without a cloud backend, fall back to committed data/team_reviews.json baseline
+      if (getCloudSettings().activeProvider === "local") {
+        try {
+          const staticRev = await fetch("data/team_reviews.json", { cache: "no-store" });
+          if (staticRev.ok) {
+            const jsonRev = await staticRev.json();
+            if (jsonRev && typeof jsonRev === "object") {
+              state.reviews = mergeReviewsMaps(jsonRev, state.reviews);
+              renderAll();
+            }
           }
-        }
-      } catch (err2) {}
+        } catch (err2) {}
+      }
     }
 
     // Pull latest reviews from Option A (Firebase) or Option B (Google Sheets) if configured
     await pullReviewsFromCloud(true);
-    const pollSec = Number(window.NAUE_CLOUD_CONFIG?.autoPollSeconds || 0);
+    const pollSec = Number(window.NAUE_CLOUD_CONFIG?.autoPollSeconds ?? 30);
     if (pollSec >= 10) {
       setInterval(() => pullReviewsFromCloud(true), pollSec * 1000);
     }

@@ -9,21 +9,22 @@
  */
 window.NAUE_CLOUD_CONFIG = {
   // Choose: "auto" | "google_sheets" | "firebase" | "local"
-  provider: "auto",
+  provider: "google_sheets",
 
   // --------------------------------------------------------------------------
-  // OPTION B: GOOGLE SHEETS LIVE BACKEND (Recommended if your team uses Google)
-  // Paste your deployed Google Apps Script Web App URL (ends with /exec):
+  // OPTION B: GOOGLE SHEETS LIVE BACKEND (Default shared backend for all users)
+  // Deployed Google Apps Script Web App URL (ends with /exec):
   // --------------------------------------------------------------------------
-  googleSheetsWebAppUrl: "",
+  googleSheetsWebAppUrl:
+    "https://script.google.com/macros/s/AKfycbxpnNWCpok61AJrLubZUlrnikFeQARHsancCsgA_ojbqQSk9XBHw0uP5lVssgLWrsmW/exec",
 
   // --------------------------------------------------------------------------
-  // OPTION A: FIREBASE REALTIME DATABASE (Recommended for instant cloud JSON)
+  // OPTION A: FIREBASE REALTIME DATABASE (Optional alternative)
   // Paste your Firebase Realtime Database URL (e.g. "https://your-app-default-rtdb.firebaseio.com"):
   // --------------------------------------------------------------------------
   firebaseDatabaseUrl: "",
 
-  // Optional auto-refresh interval in seconds to pull teammates' new notes (0 = off)
+  // Auto-refresh interval in seconds to pull teammates' new notes (0 = off)
   autoPollSeconds: 30
 };
 

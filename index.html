@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
 
   <!-- Portal Styles -->
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
 </head>
 <body>
 
@@ -31,9 +31,9 @@
       </div>
 
       <div class="header-actions">
-        <button class="btn btn-header" id="cloud-sync-btn" title="Configure Firebase (Option A) or Google Sheets (Option B) Cloud Sync for GitHub Pages">
-          <span id="cloud-status-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#38bdf8"></span>
-          <span id="cloud-status-label">☁️ Cloud Sync</span>
+        <button class="btn btn-header" id="cloud-sync-btn" title="Shared Google Sheets Cloud Sync (Connected by Default)">
+          <span id="cloud-status-dot" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981"></span>
+          <span id="cloud-status-label">☁️ Google Sheets Live</span>
         </button>
         <button class="btn btn-header" id="toggle-dashboard-btn" title="Collapse or expand charts">Hide Analytics</button>
         <a class="btn btn-header" href="Naue_Project_Opportunity_Tracker.xlsx" download title="Download original Excel source file">⬇ Source .xlsx</a>
@@ -268,7 +268,7 @@
             <li>Paste the resulting <code>https://script.google.com/macros/s/.../exec</code> URL below (and in <code>js/cloud-config.js</code> before pushing to GitHub):</li>
           </ol>
           <div style="display:flex;gap:8px">
-            <input type="url" id="cloud-gsheet-url" class="filter-select" placeholder="https://script.google.com/macros/s/.../exec" />
+            <input type="url" id="cloud-gsheet-url" class="filter-select" value="https://script.google.com/macros/s/AKfycbxpnNWCpok61AJrLubZUlrnikFeQARHsancCsgA_ojbqQSk9XBHw0uP5lVssgLWrsmW/exec" placeholder="https://script.google.com/macros/s/.../exec" />
             <button class="btn btn-primary" id="save-gsheet-btn">Connect Google Sheet</button>
           </div>
         </div>
@@ -288,10 +288,10 @@
 
         <!-- STATUS & MANUAL SYNC -->
         <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border-color);font-size:12.5px">
-          <span id="cloud-modal-status-text" style="color:var(--text-muted)">Current storage: Browser LocalStorage + Local Server</span>
+          <span id="cloud-modal-status-text" style="color:var(--text-muted)"><strong style="color:#10b981">● Connected by default to shared Google Sheets Backend (Auto-Sync Active)</strong></span>
           <div style="display:flex;gap:8px">
             <button class="btn btn-outline" id="cloud-sync-now-btn">🔄 Sync Now</button>
-            <button class="btn btn-outline" id="cloud-disconnect-btn">Disconnect Cloud</button>
+            <button class="btn btn-outline" id="cloud-disconnect-btn">Reset to Default</button>
           </div>
         </div>
       </div>
@@ -306,10 +306,10 @@
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
   <!-- Portal Data & Application Scripts -->
-  <script src="js/cloud-config.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/parser.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/cloud-config.js?v=2"></script>
+  <script src="js/data.js?v=2"></script>
+  <script src="js/parser.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>
 
