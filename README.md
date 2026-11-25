@@ -1,9 +1,9 @@
 # Naue Geosynthetics — International Development Aid Opportunity Tracker
 
-An interactive web portal that transforms `Naue_Project_Opportunity_Tracker.xlsx` into an easy-to-read, searchable, satellite-map-enabled intelligence and multi-reviewer collaboration platform covering **all 31 international development aid programs** (`Development Aid`, `Development Aid_2`, and `Development Aid_3`).
+An interactive web portal that transforms `Naue_Project_Opportunity_Tracker.xlsx` into an easy-to-read, searchable, satellite-map-enabled intelligence and multi-reviewer collaboration platform covering **all 35 international development aid programs** (`Development Aid`, `Development Aid_2`, `Development Aid_3`, and `Bangladesh`).
 
 ## Key Capabilities
-- **All 31 Active Programs (`415` Sub-Tenders · `159` Actionable Civil/Spec Opportunities)** across Batches 1–3.
+- **All 35 Active Programs (`447` Sub-Tenders · `181` Actionable Civil/Spec Opportunities)** across Batches 1–4.
 - **6 Interactive Views**:
   1. **Story Cards**: Scannable executive briefs with relevance badges, Naue product chips, review counts, and latest review previews.
   2. **Comparison Table**: Sortable engineering matrix with quick stage selectors.

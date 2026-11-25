@@ -95,14 +95,14 @@ def generate_reviewed_excel_bytes() -> bytes:
     ws.merge_cells("A1:P1")
     ws["A1"] = "NAUE GEOSYNTHETICS — REVIEWED INTERNATIONAL DEVELOPMENT AID OPPORTUNITY TRACKER"
     ws["A1"].font = Font(name="Calibri", size=14, bold=True, color="FFFFFF")
-    ws["A1"].fill = PatternFill("solid", fgColor="0B2545")
+    ws["A1"].fill = PatternFill("solid", fgColor="283C32")
     ws["A1"].alignment = Alignment(vertical="center", horizontal="left", indent=1)
     ws.row_dimensions[1].height = 28
 
     ws.merge_cells("A2:P2")
-    ws["A2"] = f"Exported {datetime.now().strftime('%Y-%m-%d %H:%M')} | All {len(projects)} Programs Across Batches 1–3 with Team Review Status, Product Fit & Notes"
-    ws["A2"].font = Font(name="Calibri", size=10, italic=True, color="1E3A5F")
-    ws["A2"].fill = PatternFill("solid", fgColor="E0F2FE")
+    ws["A2"] = f"Exported {datetime.now().strftime('%Y-%m-%d %H:%M')} | All {len(projects)} Programs Across All Batches with Team Review Status, Product Fit & Notes"
+    ws["A2"].font = Font(name="Calibri", size=10, italic=True, color="283C32")
+    ws["A2"].fill = PatternFill("solid", fgColor="D6EBE2")
     ws["A2"].alignment = Alignment(vertical="center", horizontal="left", indent=1)
     ws.row_dimensions[2].height = 20
 
@@ -125,7 +125,7 @@ def generate_reviewed_excel_bytes() -> bytes:
         "Source Batch",
     ]
 
-    header_fill = PatternFill("solid", fgColor="00549F")
+    header_fill = PatternFill("solid", fgColor="283C32")
     header_font = Font(name="Calibri", size=10, bold=True, color="FFFFFF")
     thin_side = Side(style="thin", color="CBD5E1")
     border = Border(left=thin_side, right=thin_side, top=thin_side, bottom=thin_side)

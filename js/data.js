@@ -1,10 +1,12 @@
 // Auto-generated from Naue_Project_Opportunity_Tracker.xlsx via scripts/build_data.py
 window.NAUE_INITIAL_DATA = {
   "documentTitle": "NAUE GEOSYNTHETICS — INTERNATIONAL DEVELOPMENT AID PROJECT OPPORTUNITY TRACKER",
-  "documentSubtitle": "Unified Interactive Intelligence Portal across All 31 Development Aid Programs (Batches 1–3) | Technical Scope, Geosynthetic Product Fit, Site Locations & Team Review Workflow",
+  "documentSubtitle": "Unified Interactive Intelligence Portal across All 35 Development Aid Programs (Batches 1–4) | Technical Scope, Geosynthetic Product Fit, Site Locations & Team Review Workflow",
   "sourceFile": "Naue_Project_Opportunity_Tracker.xlsx",
-  "generatedAt": "2026-10-28",
-  "executionContextNote": "All 31 documented programs—including multi-year tenders with earlier scheduled dates that have not yet started physical execution—are active in this tracker for review, consultant specification, and civil contractor pursuit.",
+  "generatedAt": "2026-11-25",
+  "programCount": 35,
+  "batchCount": 4,
+  "executionContextNote": "All 35 documented programs—including multi-year tenders with earlier scheduled dates that have not yet started physical execution—are active in this tracker for review, consultant specification, and civil contractor pursuit.",
   "productsCatalog": [
     {
       "id": "Carbofol",
@@ -245,7 +247,7 @@ window.NAUE_INITIAL_DATA = {
       "timelineMilestones": [
         "Status: Active tender stage (Original bid security/documents to be delivered physically to UNDP Yemen Sub-office in Khormaksar, Aden prior to submission deadline)."
       ],
-      "relevanceRaw": "VERY HIGH RELEVANCE — 8 Direct Opportunities (across 8 canal interventions under 1 bundled civil works tender):\n• Why it matters: Engineering drawings explicitly specify 'FILTER CLOTH' between compacted soil embankments and Protection Gabion Walls/Aprons, alongside 100m earth canal side slope reconstructions.\n• Breakdown of Opportunities:\n  - 4 Very High / High Opportunities (LT-C4 Obar Fareed, LT-C5 Obar Al-Makharij, LT-C1 Obar Al-Hadharim, Int. 7 Al-Fiyah & Al-Faqih): Direct supply of nonwoven filtration/separation geotextiles (Secutex®) behind gabions and erosion control/turf reinforcement mats (Secumat®) or canal liners (Carbofol®/Bentofix®) on reconstructed 1.5:1 earth slopes.\n  - 4 Medium-to-High Opportunities (LT-C2 Al-Tha'alab Weir & 25 Gates, LT-C3 Obar Al-Ihssan, Int. 6 Falaj Al-Ninoh, Int. 8 Al-Fardhah): Scour protection and foundation filtration geotextiles around weir aprons and gate structures.",
+      "relevanceRaw": "VERY HIGH RELEVANCE — 8 Direct Opportunities (across 8 canal interventions under 1 bundled civil works tender):\n• Why it matters: Engineering drawings explicitly specify 'FILTER CLOTH' between compacted soil embankments and Protection Gabion Walls/Aprons, alongside 100m earth canal side slope reconstructions.\n• Breakdown of Opportunities:\n- 4 Very High / High Opportunities (LT-C4 Obar Fareed, LT-C5 Obar Al-Makharij, LT-C1 Obar Al-Hadharim, Int. 7 Al-Fiyah & Al-Faqih): Direct supply of nonwoven filtration/separation geotextiles (Secutex®) behind gabions and erosion control/turf reinforcement mats (Secumat®) or canal liners (Carbofol®/Bentofix®) on reconstructed 1.5:1 earth slopes.\n- 4 Medium-to-High Opportunities (LT-C2 Al-Tha'alab Weir & 25 Gates, LT-C3 Obar Al-Ihssan, Int. 6 Falaj Al-Ninoh, Int. 8 Al-Fardhah): Scour protection and foundation filtration geotextiles around weir aprons and gate structures.",
       "relevanceTier": "Very High",
       "relevanceRank": 6,
       "relevanceHeadline": "VERY HIGH RELEVANCE — 8 Direct Opportunities (across 8 canal interventions under 1 bundled civil works tender):",
@@ -353,7 +355,7 @@ window.NAUE_INITIAL_DATA = {
         "July 2025: Detailed Study on Solid Waste Collection & Detailed Design for Zahrat Al-Finjan and Al-Minya Landfills.",
         "May 2026: Construction Supervision for Zahrat Al-Finjan Landfill (with physical civil works execution following design completion)."
       ],
-      "relevanceRaw": "VERY HIGH RELEVANCE — 2 High-Impact Core Business Opportunities (out of 3 tender packages, covering 2 major sanitary landfills):\n• Why it matters: Sanitary landfill cell construction, old cell capping/rehabilitation, landfill gas collection, and leachate collection/treatment ponds are Naue's core flagship market.\n• Breakdown of Opportunities:\n  - 2 Very High Opportunities (Detailed Design SPN-July 2025 & Supervision SPN-May 2026 for Zahrat Al-Finjan and Al-Minya Landfills): Immediate opportunity to engage the appointed design and supervision consultants to specify Naue's complete landfill containment system into the tender Bill of Quantities (BoQ)—including Carbofol® HDPE geomembranes (basal liners & capping), Bentofix® GCLs (secondary mineral barrier), Secutex® heavy-duty cushion/protection geotextiles, and Secudrain® geocomposites (leachate collection & landfill gas drainage layers).\n  - 1 No-Relevance Package: Solid waste collection routing/optimization study.",
+      "relevanceRaw": "VERY HIGH RELEVANCE — 2 High-Impact Core Business Opportunities (out of 3 tender packages, covering 2 major sanitary landfills):\n• Why it matters: Sanitary landfill cell construction, old cell capping/rehabilitation, landfill gas collection, and leachate collection/treatment ponds are Naue's core flagship market.\n• Breakdown of Opportunities:\n- 2 Very High Opportunities (Detailed Design SPN-July 2025 & Supervision SPN-May 2026 for Zahrat Al-Finjan and Al-Minya Landfills): Immediate opportunity to engage the appointed design and supervision consultants to specify Naue's complete landfill containment system into the tender Bill of Quantities (BoQ)—including Carbofol® HDPE geomembranes (basal liners & capping), Bentofix® GCLs (secondary mineral barrier), Secutex® heavy-duty cushion/protection geotextiles, and Secudrain® geocomposites (leachate collection & landfill gas drainage layers).\n- 1 No-Relevance Package: Solid waste collection routing/optimization study.",
       "relevanceTier": "Very High",
       "relevanceRank": 6,
       "relevanceHeadline": "VERY HIGH RELEVANCE — 2 High-Impact Core Business Opportunities (out of 3 tender packages, covering 2 major sanitary landfills):",
@@ -591,7 +593,7 @@ window.NAUE_INITIAL_DATA = {
       "timelineMilestones": [
         "International QCBS Supervision Contract (US$ 4.94M): Terms of Reference 2025-11-01 (Actual 2026-03-10); Expression of Interest 2025-12-09 (Actual 2026-03-16); Planned Contract Signing 2026-07-29; Planned Completion 2028-04-30 (Status: Under Implementation)."
       ],
-      "relevanceRaw": "MEDIUM-TO-HIGH RELEVANCE (Specification & Quality Control Channel) — 3 Opportunities:\n• Why it matters: Ministry of Water Resources (MOWR) Anbar contracts involve major canal, dam/barrage, and embankment rehabilitation along the Euphrates river corridor, while Road Rehabilitation Phase 1 covers primary highway/roadway reconstruction.\n• Breakdown of Opportunities:\n  - 2 High/Medium-High Specification Opportunities (EODP-AF-MOWR/C02A Anbar Water Resources Supervision & US$ 4.94M International Supervision Contract running 2026–2028): Direct opportunity to engage the supervision/quality control engineering firm for MOWR Anbar contracts to approve and specify Naue geotextiles (Secutex®), geomembranes (Carbofol®), GCLs (Bentofix®), and erosion protection in hydraulic and canal works.\n  - 1 Medium Opportunity (G-GP-CS-CQS1 Road Rehabilitation Phase 1): Downstream road subgrade reinforcement (Secugrid®).",
+      "relevanceRaw": "MEDIUM-TO-HIGH RELEVANCE (Specification & Quality Control Channel) — 3 Opportunities:\n• Why it matters: Ministry of Water Resources (MOWR) Anbar contracts involve major canal, dam/barrage, and embankment rehabilitation along the Euphrates river corridor, while Road Rehabilitation Phase 1 covers primary highway/roadway reconstruction.\n• Breakdown of Opportunities:\n- 2 High/Medium-High Specification Opportunities (EODP-AF-MOWR/C02A Anbar Water Resources Supervision & US$ 4.94M International Supervision Contract running 2026–2028): Direct opportunity to engage the supervision/quality control engineering firm for MOWR Anbar contracts to approve and specify Naue geotextiles (Secutex®), geomembranes (Carbofol®), GCLs (Bentofix®), and erosion protection in hydraulic and canal works.\n- 1 Medium Opportunity (G-GP-CS-CQS1 Road Rehabilitation Phase 1): Downstream road subgrade reinforcement (Secugrid®).",
       "relevanceTier": "Medium-to-High",
       "relevanceRank": 4,
       "relevanceHeadline": "MEDIUM-TO-HIGH RELEVANCE (Specification & Quality Control Channel) — 3 Opportunities:",
@@ -700,7 +702,7 @@ window.NAUE_INITIAL_DATA = {
         "Phase 1 (TF/B8799 & TF/B9817): 2023-04-06 to 2025-12-10 (Under Implementation / Pending Implementation; includes Hamad & Zarqa Basin study completing May 2025).",
         "Phase 2 (TF/D0350 - PR2-JO-MOA-*): 2026-01-18 to 2027-06-30 (Under Implementation / Pending Implementation; Civil Engineering Expert #2 runs Jan 2026–June 2027; Farm-level Water Harvesting Technology Survey runs June 2026–June 2027)."
       ],
-      "relevanceRaw": "MEDIUM RELEVANCE (Upstream Specification Opportunity) — 6 Relevant Opportunities out of 27 Packages:\n• Why it matters: While these 27 notices are consulting, survey, and expert recruitment packages rather than direct material supply tenders, 6 packages directly shape the technical standards and civil designs for Jordan's national rainwater harvesting pond and desert basin storage program.\n• Breakdown of Opportunities:\n  - 6 Medium Opportunities (4 Water Harvesting Technology/Basin Studies + 2 MOA Civil/Construction Experts active in 2025–2027): High-value upstream opportunity for Naue's technical sales team to introduce Carbofol® geomembranes, Bentofix® GCLs, and Secutex® protection layers to the MOA Civil Engineering Experts and the water harvesting survey consultants as the standard lining solution for farm-level water harvesting ponds and desert hafirs in the Hamad and Zarqa Basins.\n  - 21 Low / No-Relevance Packages: HR/training, IT hardware, and general E&S/M&E staffing.",
+      "relevanceRaw": "MEDIUM RELEVANCE (Upstream Specification Opportunity) — 6 Relevant Opportunities out of 27 Packages:\n• Why it matters: While these 27 notices are consulting, survey, and expert recruitment packages rather than direct material supply tenders, 6 packages directly shape the technical standards and civil designs for Jordan's national rainwater harvesting pond and desert basin storage program.\n• Breakdown of Opportunities:\n- 6 Medium Opportunities (4 Water Harvesting Technology/Basin Studies + 2 MOA Civil/Construction Experts active in 2025–2027): High-value upstream opportunity for Naue's technical sales team to introduce Carbofol® geomembranes, Bentofix® GCLs, and Secutex® protection layers to the MOA Civil Engineering Experts and the water harvesting survey consultants as the standard lining solution for farm-level water harvesting ponds and desert hafirs in the Hamad and Zarqa Basins.\n- 21 Low / No-Relevance Packages: HR/training, IT hardware, and general E&S/M&E staffing.",
       "relevanceTier": "Moderate",
       "relevanceRank": 3,
       "relevanceHeadline": "MEDIUM RELEVANCE (Upstream Specification Opportunity) — 6 Relevant Opportunities out of 27 Packages:",
@@ -810,7 +812,7 @@ window.NAUE_INITIAL_DATA = {
         "Component 1 NRW Package: 2024-04-02 to 2025-04-24.",
         "JO-WAJ-413957-CS-QCBS (Water/Wastewater EE Design & Supervision) & JO-WAJ-413953-CS-QCBS (RE Supervision): Planned through May 2029."
       ],
-      "relevanceRaw": "LOW-TO-MEDIUM RELEVANCE — 3 Indirect / Downstream Specification Opportunities out of 6 Consulting Tenders:\n• Why it matters: All 6 listed packages are engineering design, project management, and supervision consultancies (QCBS). However, physical upgrades to selected water and wastewater facilities, NRW water loss reduction works, and renewable energy (solar) installations require downstream geosynthetics.\n• Breakdown of Opportunities:\n  - 3 Low-to-Medium Opportunities (Component 1 NRW Reduction, JO-WAJ-413957 Water/Wastewater Facilities Design & Supervision, and JO-WAJ-413953 RE Supervision, plus the US$ 8M Technical Assistance Management Firm JO-WAJ-413938): Opportunity to register Naue wastewater lagoon/reservoir liners (Carbofol®/Bentofix®) and solar site stabilization geogrids (Secugrid®) with the Project Management Firm and Design Consultants.\n  - 3 Low / No-Relevance Packages: Financial expert and canceled PBC verification contract.",
+      "relevanceRaw": "LOW-TO-MEDIUM RELEVANCE — 3 Indirect / Downstream Specification Opportunities out of 6 Consulting Tenders:\n• Why it matters: All 6 listed packages are engineering design, project management, and supervision consultancies (QCBS). However, physical upgrades to selected water and wastewater facilities, NRW water loss reduction works, and renewable energy (solar) installations require downstream geosynthetics.\n• Breakdown of Opportunities:\n- 3 Low-to-Medium Opportunities (Component 1 NRW Reduction, JO-WAJ-413957 Water/Wastewater Facilities Design & Supervision, and JO-WAJ-413953 RE Supervision, plus the US$ 8M Technical Assistance Management Firm JO-WAJ-413938): Opportunity to register Naue wastewater lagoon/reservoir liners (Carbofol®/Bentofix®) and solar site stabilization geogrids (Secugrid®) with the Project Management Firm and Design Consultants.\n- 3 Low / No-Relevance Packages: Financial expert and canceled PBC verification contract.",
       "relevanceTier": "Low-to-Medium",
       "relevanceRank": 2,
       "relevanceHeadline": "LOW-TO-MEDIUM RELEVANCE — 3 Indirect / Downstream Specification Opportunities out of 6 Consulting Tenders:",
@@ -923,7 +925,7 @@ window.NAUE_INITIAL_DATA = {
         "Approved by World Bank Country Director on January 09, 2023",
         "National Window Eco-Innovation Challenge pilot grants designed for 1-year execution cycles prior to project closure."
       ],
-      "relevanceRaw": "LOW RELEVANCE (Overall Policy Scope) / LOW-TO-MEDIUM (Pilot Grants & Pre-Feasibility) — 4 Potential Niche Opportunities out of 5 Program Deliverables:\n• Why it matters: The overarching project is an institutional capacity-building, policy dialogue, and innovation grant program rather than a heavy civil engineering tender.\n• Breakdown of Opportunities:\n  - 1 Low-to-Medium Opportunity (Pre-Feasibility Study): If the selected pre-feasibility study covers coastal landfill remediation, Leachate/tailings containment, or wastewater lagoons in Georgia, Moldova, Türkiye, or Ukraine, Naue can provide technical design parameters.\n  - 3 Low-to-Medium Niche Opportunities (National Window Eco-Innovation Challenges in Türkiye, Georgia, and Moldova): Local partners or environmental engineering firms could apply for pilot grants incorporating geosynthetic sediment containment (Secutex® dewatering tubes), coastal erosion protection, or nutrient/runoff barrier systems.\n  - 1 No-Relevance Activity: Intergovernmental policy harmonization.",
+      "relevanceRaw": "LOW RELEVANCE (Overall Policy Scope) / LOW-TO-MEDIUM (Pilot Grants & Pre-Feasibility) — 4 Potential Niche Opportunities out of 5 Program Deliverables:\n• Why it matters: The overarching project is an institutional capacity-building, policy dialogue, and innovation grant program rather than a heavy civil engineering tender.\n• Breakdown of Opportunities:\n- 1 Low-to-Medium Opportunity (Pre-Feasibility Study): If the selected pre-feasibility study covers coastal landfill remediation, Leachate/tailings containment, or wastewater lagoons in Georgia, Moldova, Türkiye, or Ukraine, Naue can provide technical design parameters.\n- 3 Low-to-Medium Niche Opportunities (National Window Eco-Innovation Challenges in Türkiye, Georgia, and Moldova): Local partners or environmental engineering firms could apply for pilot grants incorporating geosynthetic sediment containment (Secutex® dewatering tubes), coastal erosion protection, or nutrient/runoff barrier systems.\n- 1 No-Relevance Activity: Intergovernmental policy harmonization.",
       "relevanceTier": "Low",
       "relevanceRank": 1,
       "relevanceHeadline": "LOW RELEVANCE (Overall Policy Scope) / LOW-TO-MEDIUM (Pilot Grants & Pre-Feasibility) — 4 Potential Niche Opportunities out of 5 Program Deliverables:",
@@ -1070,7 +1072,7 @@ window.NAUE_INITIAL_DATA = {
         "Secudrain": true,
         "Secumat": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Secudrain® – Drainage Geocomposites, Secumat® – Erosion Control Mats",
       "budget": "7 Procurement Packages (GSWMP & AF)",
       "stats": {
         "total": 7,
@@ -1182,7 +1184,7 @@ window.NAUE_INITIAL_DATA = {
         "Secugrid": true,
         "Combigrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile",
       "budget": "6 Civil & Supervision Packages",
       "stats": {
         "total": 6,
@@ -1297,13 +1299,13 @@ window.NAUE_INITIAL_DATA = {
         "Secugrid": true,
         "Combigrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile",
       "budget": "~US$ 78M+ Documented Works",
       "stats": {
         "total": 18,
         "high": 15,
-        "medium": 3,
-        "low": 0,
+        "medium": 0,
+        "low": 3,
         "actionable": 15
       }
     },
@@ -1436,7 +1438,7 @@ window.NAUE_INITIAL_DATA = {
         "Bentofix": true,
         "Secutex": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles",
       "budget": "15 Municipal Water/WWTP Packages",
       "stats": {
         "total": 15,
@@ -1552,7 +1554,7 @@ window.NAUE_INITIAL_DATA = {
         "Secugrid": true,
         "Combigrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile",
       "budget": "5 Municipal RFB Civil Packages",
       "stats": {
         "total": 5,
@@ -1641,7 +1643,7 @@ window.NAUE_INITIAL_DATA = {
         "Secugrid": true,
         "Combigrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile",
       "budget": "Multi-Municipal IPF Grant Program",
       "stats": {
         "total": 10,
@@ -1725,7 +1727,7 @@ window.NAUE_INITIAL_DATA = {
         "Bentofix": true,
         "Secugrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secugrid® – Geogrids (Soil Reinforcement)",
       "budget": "EUR 149,000 Pre-Signing TC",
       "stats": {
         "total": 2,
@@ -1803,7 +1805,7 @@ window.NAUE_INITIAL_DATA = {
         "Bentofix": true,
         "Secutex": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles",
       "budget": "US$ 20M–50M (2 Water Contracts)",
       "stats": {
         "total": 4,
@@ -1916,7 +1918,7 @@ window.NAUE_INITIAL_DATA = {
         "Secugrid": true,
         "Secumat": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Secumat® – Erosion Control Mats",
       "budget": "US$ 11.65M–30.5M (4 Contracts)",
       "stats": {
         "total": 4,
@@ -2023,13 +2025,13 @@ window.NAUE_INITIAL_DATA = {
         "Carbofol": true,
         "Bentofix": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs)",
       "budget": "US$ 100M ECRP + IDA18 Diagnostics",
       "stats": {
         "total": 2,
         "high": 0,
-        "medium": 0,
-        "low": 2,
+        "medium": 1,
+        "low": 1,
         "actionable": 1
       }
     },
@@ -2113,13 +2115,13 @@ window.NAUE_INITIAL_DATA = {
         "Secutex": true,
         "Secugrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement)",
       "budget": "~60 Sub-Contracts ($14.89M+ Goods)",
       "stats": {
         "total": 60,
         "high": 0,
-        "medium": 0,
-        "low": 60,
+        "medium": 1,
+        "low": 59,
         "actionable": 1
       }
     },
@@ -2222,13 +2224,13 @@ window.NAUE_INITIAL_DATA = {
         "Secutex": true,
         "Secumat": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® Soft Rock – Coastal & Hydraulic Sand Containers, Secutex® – Nonwoven Geotextiles, Secumat® – Erosion Control Mats",
       "budget": "US$ 50M+ Multi-Mission Awards",
       "stats": {
         "total": 8,
         "high": 0,
-        "medium": 0,
-        "low": 8,
+        "medium": 2,
+        "low": 6,
         "actionable": 2
       }
     },
@@ -2252,7 +2254,7 @@ window.NAUE_INITIAL_DATA = {
         "P130343"
       ],
       "procuringOrgRaw": "World Bank (MNSSD / MNSEN) / Global Environment Facility (GEF)",
-      "agencyShort": "World Bank, GEF",
+      "agencyShort": "World Bank / GEF",
       "donors": [
         "World Bank",
         "GEF"
@@ -2286,7 +2288,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "products": [],
       "explicitProductMap": {},
-      "primaryProductSummary": "",
+      "primaryProductSummary": "No direct geosynthetic fit identified",
       "budget": "US$ 1.00M GEF TA Grant",
       "stats": {
         "total": 5,
@@ -2346,7 +2348,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "products": [],
       "explicitProductMap": {},
-      "primaryProductSummary": "",
+      "primaryProductSummary": "No direct geosynthetic fit identified",
       "budget": "~55 Non-Civil Awards (21 Countries)",
       "stats": {
         "total": 55,
@@ -2398,7 +2400,7 @@ window.NAUE_INITIAL_DATA = {
         "P116199"
       ],
       "procuringOrgRaw": "World Bank Group (IBRD/IDA/IFC/MIGA), SIDA, USAID, AFD, PID Multi-Donor Trust Fund, and Palestinian Authority (MOPWH & MOF)",
-      "agencyShort": "World Bank, USAID, EU / Bilateral (SIDA, AFD)",
+      "agencyShort": "World Bank / USAID / EU / Bilateral (SIDA, AFD)",
       "donors": [
         "World Bank",
         "USAID",
@@ -2411,7 +2413,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "salesChannel": "Direct + Specification",
       "technicalScopeRaw": "Construction and upgrading of sanitary landfills and solid waste management facilities in Gaza and Southern West Bank; emergency sewage treatment plants and percolation/infiltration basins in North Gaza; regional wastewater treatment and network improvements in Hebron; municipal water supply, sewage system rehabilitation, urban roads, and electricity network rehabilitation.",
-      "scopeLead": "Construction and upgrading of sanitary landfills and solid waste management facilities in Gaza and Southern West Bank.",
+      "scopeLead": "Key program activities & procurement packages:",
       "scopeItems": [
         {
           "num": "1",
@@ -2464,7 +2466,7 @@ window.NAUE_INITIAL_DATA = {
         "Secutex": true,
         "Secudrain": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles, Secudrain® – Drainage Geocomposites",
       "budget": "9 Major Multi-Donor Programs",
       "stats": {
         "total": 9,
@@ -2530,16 +2532,16 @@ window.NAUE_INITIAL_DATA = {
       "products": [
         "Carbofol",
         "Bentofix",
-        "Secudrain",
-        "Secutex"
+        "Secutex",
+        "Secudrain"
       ],
       "explicitProductMap": {
-        "Carbofol": false,
-        "Bentofix": false,
-        "Secudrain": false,
-        "Secutex": false
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secudrain": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secudrain® – Drainage Geocomposites, Secutex® – Nonwoven Geotextiles",
       "budget": "21 Direct Management Contracts",
       "stats": {
         "total": 21,
@@ -2586,7 +2588,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "salesChannel": "Direct + Specification",
       "technicalScopeRaw": "Major hydraulic and civil works comprising construction of the Gharesoo Zaringol Irrigation & Drainage Network, Fenderesk Dam, and Flood Prevention System; Mini Hydropower Plant; National Training Center and Carpet Workshop; Water Quality & Data Monitoring Systems; and Consultancy Services for IWRM and Upper Watershed Management.",
-      "scopeLead": "Major hydraulic and civil works comprising construction of the Gharesoo Zaringol Irrigation & Drainage Network, Fenderesk Dam, and Flood Prevention System.",
+      "scopeLead": "Key program activities & procurement packages:",
       "scopeItems": [
         {
           "num": "1",
@@ -2630,20 +2632,20 @@ window.NAUE_INITIAL_DATA = {
       "whyItMatters": "Dam construction (Fenderesk Dam), flood prevention embankments, and irrigation/drainage canals heavily require waterproofing geomembrane/GCL liners, nonwoven filtration geotextiles, erosion control mats (Secumat), and soil reinforcement geogrids (Secugrid).",
       "relevanceBreakdown": [],
       "products": [
-        "Secugrid",
-        "Secumat",
         "Carbofol",
         "Bentofix",
-        "Secutex"
+        "Secutex",
+        "Secugrid",
+        "Secumat"
       ],
       "explicitProductMap": {
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
         "Secugrid": true,
-        "Secumat": true,
-        "Carbofol": false,
-        "Bentofix": false,
-        "Secutex": false
+        "Secumat": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secugrid® – Geogrids (Soil Reinforcement), Secumat® – Erosion Control Mats, Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles",
       "budget": "Dam, Flood System & Irrigation Network",
       "stats": {
         "total": 6,
@@ -2701,7 +2703,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "salesChannel": "Direct + Specification",
       "technicalScopeRaw": "Rehabilitation of non-rural roads (target 100 km) and major transport corridors; irrigation and drainage network improvements ($140M); emergency water supply and Baghdad water/sewerage reconstruction ($100M); hydropower rehabilitation (Dokan & Derbandikhan dams); railway safety improvement ($200M); and aviation development.",
-      "scopeLead": "Rehabilitation of non-rural roads (target 100 km) and major transport corridors.",
+      "scopeLead": "Key program activities & procurement packages:",
       "scopeItems": [
         {
           "num": "1",
@@ -2750,20 +2752,20 @@ window.NAUE_INITIAL_DATA = {
       "whyItMatters": "Road rehabilitation, highways, railway trackbed stabilization, aviation subbases, dam rehab, and irrigation/drainage channels extensively utilize Secugrid/Combigrid geogrids for base reinforcement, Secutex geotextiles for separation/filtration, and canal lining systems.",
       "relevanceBreakdown": [],
       "products": [
+        "Carbofol",
+        "Bentofix",
         "Secutex",
         "Secugrid",
-        "Combigrid",
-        "Carbofol",
-        "Bentofix"
+        "Combigrid"
       ],
       "explicitProductMap": {
+        "Carbofol": true,
+        "Bentofix": true,
         "Secutex": true,
         "Secugrid": true,
-        "Combigrid": true,
-        "Carbofol": false,
-        "Bentofix": false
+        "Combigrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile, Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs)",
       "budget": "US$ 440M+ Documented Pipeline",
       "stats": {
         "total": 7,
@@ -2839,16 +2841,16 @@ window.NAUE_INITIAL_DATA = {
       "products": [
         "Carbofol",
         "Bentofix",
-        "Secugrid",
-        "Secutex"
+        "Secutex",
+        "Secugrid"
       ],
       "explicitProductMap": {
-        "Carbofol": false,
-        "Bentofix": false,
-        "Secugrid": false,
-        "Secutex": false
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secugrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secugrid® – Geogrids (Soil Reinforcement), Secutex® – Nonwoven Geotextiles",
       "budget": "US$ 375M+ (Qaraoun $55M, Transport $200M)",
       "stats": {
         "total": 8,
@@ -2905,7 +2907,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "salesChannel": "Direct + Specification",
       "technicalScopeRaw": "Sanitary landfill and comprehensive solid waste management to stop groundwater pollution from untreated leachate; port sector rehabilitation; Samawah bridges and road construction; Basrah and Baiji oil refinery upgrading and crude oil spill response/containment; water supply and sewerage upgrades across Baghdad, Basrah, and Kurdistan; and arid-region irrigation improvements.",
-      "scopeLead": "Sanitary landfill and comprehensive solid waste management to stop groundwater pollution from untreated leachate.",
+      "scopeLead": "Key program activities & procurement packages:",
       "scopeItems": [
         {
           "num": "1",
@@ -2950,20 +2952,20 @@ window.NAUE_INITIAL_DATA = {
       "whyItMatters": "Explicitly highlights the lack of sanitary landfills causing groundwater contamination from untreated leachate, alongside port/coastal rehabilitation, road/bridge construction, and secondary oil/gas tank farm containment—prime applications for Naue lining, coastal protection, and reinforcement products.",
       "relevanceBreakdown": [],
       "products": [
+        "Secutex Soft Rock",
         "Carbofol",
         "Bentofix",
-        "Secugrid",
         "Secutex",
-        "Secutex Soft Rock"
+        "Secugrid"
       ],
       "explicitProductMap": {
-        "Carbofol": false,
-        "Bentofix": false,
-        "Secugrid": false,
-        "Secutex": false,
-        "Secutex Soft Rock": false
+        "Secutex Soft Rock": true,
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secugrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secugrid® – Geogrids (Soil Reinforcement), Secutex® – Nonwoven Geotextiles, Secutex® Soft Rock – Coastal & Hydraulic Sand Containers",
       "budget": "7 Major JICA ODA Sector Programs",
       "stats": {
         "total": 7,
@@ -3037,16 +3039,16 @@ window.NAUE_INITIAL_DATA = {
       "products": [
         "Carbofol",
         "Bentofix",
-        "Secugrid",
-        "Secutex"
+        "Secutex",
+        "Secugrid"
       ],
       "explicitProductMap": {
-        "Carbofol": false,
-        "Bentofix": false,
-        "Secugrid": false,
-        "Secutex": false
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secugrid": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secugrid® – Geogrids (Soil Reinforcement), Secutex® – Nonwoven Geotextiles",
       "budget": "7 Portfolio Programs (WB / IFC)",
       "stats": {
         "total": 7,
@@ -3112,10 +3114,10 @@ window.NAUE_INITIAL_DATA = {
         "Secutex"
       ],
       "explicitProductMap": {
-        "Carbofol": false,
-        "Secutex": false
+        "Carbofol": true,
+        "Secutex": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Secutex® – Nonwoven Geotextiles",
       "budget": "US$ 300,000 IWRM Pilot",
       "stats": {
         "total": 4,
@@ -3169,7 +3171,7 @@ window.NAUE_INITIAL_DATA = {
       ],
       "salesChannel": "Direct + Specification",
       "technicalScopeRaw": "Component 1: Climate Resilient Coastal Management, specifically (a) small- and medium-scale coastal protection infrastructure in Hodeida and Aden, (b) ecosystem-based adaptation, and (c) livelihoods support; Component 2: Capacity Building and Climate Risk Management; Component 3: Project Coordination.",
-      "scopeLead": "Component 1: Climate Resilient Coastal Management, specifically (a) small- and medium-scale coastal protection infrastructure in Hodeida and Aden, (b) ecosystem-based adaptation, and (c) livelihoods support.",
+      "scopeLead": "Key program activities & procurement packages:",
       "scopeItems": [
         {
           "num": "1",
@@ -3202,12 +3204,14 @@ window.NAUE_INITIAL_DATA = {
       "whyItMatters": "Small- and medium-scale coastal protection infrastructure directly aligns with Naue's coastal erosion protection solutions, including Secutex Soft Rock geotextile sand containers, marine filter layers, and scour protection systems.",
       "relevanceBreakdown": [],
       "products": [
-        "Secutex Soft Rock"
+        "Secutex Soft Rock",
+        "Secutex"
       ],
       "explicitProductMap": {
-        "Secutex Soft Rock": true
+        "Secutex Soft Rock": true,
+        "Secutex": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Secutex® Soft Rock – Coastal & Hydraulic Sand Containers",
       "budget": "US$ 20.0M CSCF Grant",
       "stats": {
         "total": 3,
@@ -3285,7 +3289,7 @@ window.NAUE_INITIAL_DATA = {
         "Bentofix": true,
         "Secutex": true
       },
-      "primaryProductSummary": "",
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles",
       "budget": "€55.0M (€50M KfW Loan)",
       "stats": {
         "total": 4,
@@ -3293,6 +3297,452 @@ window.NAUE_INITIAL_DATA = {
         "medium": 2,
         "low": 0,
         "actionable": 4
+      }
+    },
+    {
+      "id": "NAUE-32",
+      "seq": 32,
+      "excelRow": 36,
+      "folder": "Bangladesh",
+      "folderLabel": "Batch 4 · Bangladesh",
+      "shortName": "Bangladesh SASEC Elenga–Hatikumrul–Rangpur Highway (Phase 2)",
+      "title": "South Asia Subregional Economic Cooperation (SASEC) Dhaka–Northwest Corridor Road Project, Phase 2",
+      "countryRaw": "Bangladesh",
+      "countries": [
+        "Bangladesh"
+      ],
+      "locationRaw": "Elenga–Hatikumrul–Rangpur Highway Corridor (Tangail, Sirajganj, Bogura, Gaibandha, and Rangpur districts; N4/N5)",
+      "coordinatesRaw": "Elenga: 24.3352° N, 89.9252° E\nHatikumrul: 24.4293° N, 89.5480° E\nRangpur: 25.7466° N, 89.2517° E",
+      "mapLocations": [
+        {
+          "name": "Elenga (Tangail) – Highway Start",
+          "lat": 24.3352,
+          "lng": 89.9252,
+          "precision": "approximate",
+          "note": "190 km 2→4 lane widening over alluvial floodplain & soft subgrade"
+        },
+        {
+          "name": "Hatikumrul Interchange (Sirajganj)",
+          "lat": 24.4293,
+          "lng": 89.548,
+          "precision": "approximate",
+          "note": "Interchange improvement (WP-13): MSE walls & geogrid-reinforced abutments"
+        },
+        {
+          "name": "Rangpur – Highway End",
+          "lat": 25.7466,
+          "lng": 89.2517,
+          "precision": "approximate",
+          "note": "Tranche 4 continuation works & 6-year performance-based maintenance"
+        }
+      ],
+      "tenderRefRaw": "ADB 40540-016 / 017 / 018 / 019 / 020 (MFF 0103; Loans 3592, 3593, 4389, 4604-BAN); Works Packages MP-1 to MP-3 (WP-05 to WP-15)",
+      "tenderCodes": [
+        "ADB 40540-016",
+        "MFF 0103",
+        "Loans 3592"
+      ],
+      "procuringOrgRaw": "Roads and Highways Department (RHD), Ministry of Road Transport and Bridges (MRTB); Funded by Asian Development Bank (ADB)",
+      "agencyShort": "ADB",
+      "donors": [
+        "ADB"
+      ],
+      "sectors": [
+        "Roads, Highways & Bridges"
+      ],
+      "salesChannel": "Direct Civil Works Supply",
+      "technicalScopeRaw": "Upgrading ~190.4 km of Elenga–Hatikumrul–Rangpur highway from 2 lanes to 4 lanes with separate slow-moving vehicular traffic (SMVT) lanes on both sides (8 road packages WP-05 to WP-12); Hatikumrul Interchange improvement (WP-13); construction of Road Research & Training Center (WP-14) and Road Operation Units (WP-15); subgrade/foundation testing & strengthening, pavement structures, bridges, plus 6-year performance-based maintenance (PBM) after 12-month defect liability period; additional financing for Phase 1 cost overruns. Total financing: $1,672.6M ($1,200M ADB).",
+      "scopeLead": "Key program activities & procurement packages:",
+      "scopeItems": [
+        {
+          "num": "1",
+          "title": "",
+          "body": "Upgrading ~190.4 km of Elenga–Hatikumrul–Rangpur highway from 2 lanes to 4 lanes with separate slow-moving vehicular traffic (SMVT) lanes on both sides (8 road packages WP-05 to WP-12)"
+        },
+        {
+          "num": "2",
+          "title": "",
+          "body": "Hatikumrul Interchange improvement (WP-13)"
+        },
+        {
+          "num": "3",
+          "title": "",
+          "body": "Construction of Road Research & Training Center (WP-14) and Road Operation Units (WP-15)"
+        },
+        {
+          "num": "4",
+          "title": "",
+          "body": "Subgrade/foundation testing & strengthening, pavement structures, bridges, plus 6-year performance-based maintenance (PBM) after 12-month defect liability period"
+        },
+        {
+          "num": "5",
+          "title": "",
+          "body": "Additional financing for Phase 1 cost overruns. Total financing: $1,672.6M ($1,200M ADB)."
+        }
+      ],
+      "scopeOppCallout": "",
+      "timelineRaw": "Advance contracting notice: Mar 2017; ICB road works tendered Q2 2017–2018 and awarded late 2018–2019; Tranche 3 (Loan 4389) approved Nov 2023; Tranche 4 (Loan 4604) approved Jun 2025 with continuation contracts awarded Aug 2025; MFF availability & closing date: 31 Aug 2027 (36-month construction + 12-month DLP + 6-year PBM).",
+      "timelineTag": "Tranche 4 Active · MFF closes Aug 2027",
+      "timelineHeadline": "Advance contracting notice: Mar 2017",
+      "timelineMilestones": [
+        "ICB road works tendered Q2 2017–2018 and awarded late 2018–2019",
+        "Tranche 3 (Loan 4389) approved Nov 2023",
+        "Tranche 4 (Loan 4604) approved Jun 2025 with continuation contracts awarded Aug 2025",
+        "MFF availability & closing date: 31 Aug 2027 (36-month construction + 12-month DLP + 6-year PBM)."
+      ],
+      "relevanceRaw": "HIGH (Direct Fit — Active Tranche 4 & Maintenance): Major 190 km highway widening over alluvial floodplains and soft subgrades. Direct applications for Naue Secugrid® & Combigrid® (base/subbase reinforcement, soft-ground embankment stabilization, geogrid-reinforced bridge abutments & Hatikumrul interchange MSE walls), Secutex® (separation/filtration), Secumat® (embankment slope erosion control), and Secudrain® (structural/subsurface drainage). Because primary packages are already awarded (Abdul Monem, HEGO–Mir Akhter, CPC–Tantia, KMC–Monico, CSCEC, CRCB, NDE), target Tranche 4 remaining earthworks/interchange works and 6-year PBM maintenance supply.",
+      "relevanceTier": "High",
+      "relevanceRank": 5,
+      "relevanceHeadline": "HIGH (Direct Fit — Active Tranche 4 & Maintenance) Relevance",
+      "whyItMatters": "Major 190 km highway widening over alluvial floodplains and soft subgrades. Direct applications for Naue Secugrid® & Combigrid® (base/subbase reinforcement, soft-ground embankment stabilization, geogrid-reinforced bridge abutments & Hatikumrul interchange MSE walls), Secutex® (separation/filtration), Secumat® (embankment slope erosion control), and Secudrain® (structural/subsurface drainage). Because primary packages are already awarded (Abdul Monem, HEGO–Mir Akhter, CPC–Tantia, KMC–Monico, CSCEC, CRCB, NDE), target Tranche 4 remaining earthworks/interchange works and 6-year PBM maintenance supply.",
+      "relevanceBreakdown": [],
+      "products": [
+        "Secutex",
+        "Secugrid",
+        "Combigrid",
+        "Secudrain",
+        "Secumat"
+      ],
+      "explicitProductMap": {
+        "Secutex": true,
+        "Secugrid": true,
+        "Combigrid": true,
+        "Secudrain": true,
+        "Secumat": true
+      },
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile, Secudrain® – Drainage Geocomposites, Secumat® – Erosion Control Mats",
+      "budget": "US$ 1,672.6M (US$ 1,200M ADB)",
+      "stats": {
+        "total": 11,
+        "high": 9,
+        "medium": 0,
+        "low": 2,
+        "actionable": 9
+      }
+    },
+    {
+      "id": "NAUE-33",
+      "seq": 33,
+      "excelRow": 37,
+      "folder": "Bangladesh",
+      "folderLabel": "Batch 4 · Bangladesh",
+      "shortName": "Bangladesh SASEC Dhaka–Sylhet Corridor Road (N2)",
+      "title": "South Asia Subregional Economic Cooperation (SASEC) Dhaka–Sylhet Corridor Road Investment Project",
+      "countryRaw": "Bangladesh",
+      "countries": [
+        "Bangladesh"
+      ],
+      "locationRaw": "Dhaka (Katchpur)–Narsingdi–Bhairab–Sarail–Sayestaganj–Sherpur–Sylhet Highway Corridor (National Highway N2)",
+      "coordinatesRaw": "Katchpur (Dhaka): 23.7022° N, 90.5256° E\nSylhet: 24.9000° N, 91.8830° E",
+      "mapLocations": [
+        {
+          "name": "Katchpur (Dhaka) – Corridor Start",
+          "lat": 23.7022,
+          "lng": 90.5256,
+          "precision": "approximate",
+          "note": "208.9 km N2 upgrade to 4-lane with service lanes; weak soil design revisions"
+        },
+        {
+          "name": "Sylhet – Corridor End",
+          "lat": 24.9,
+          "lng": 91.883,
+          "precision": "approximate",
+          "note": "Tranche 2 civil packages (DS-2 to DS-12A, WP-06B) ~79% of works remaining"
+        }
+      ],
+      "tenderRefRaw": "ADB 53382-BAN (53382-001, 53382-002, 53382-003; MFF 0112; Loans 4108-BAN Tranche 1 & 4772-BAN Tranche 2); Works Lots DS-1 to DS-12A / WP-01 to WP-06B",
+      "tenderCodes": [
+        "ADB 53382-BAN",
+        "MFF 0112",
+        "Loans 4108-BAN"
+      ],
+      "procuringOrgRaw": "Roads and Highways Department (RHD), Ministry of Road Transport and Bridges (MRTB); Funded by Asian Development Bank (ADB)",
+      "agencyShort": "ADB",
+      "donors": [
+        "ADB"
+      ],
+      "sectors": [
+        "Roads, Highways & Bridges"
+      ],
+      "salesChannel": "Direct Civil Works Supply",
+      "technicalScopeRaw": "Upgrading 208.9 km of existing 2-lane National Highway N2 (Dhaka/Katchpur to Sylhet) into a 4-lane highway with dedicated service lanes on both sides; geometric realignment at sharp curves and urban centers; bridges, overpasses, road safety enhancements, and disaster/climate-resilient pavement and embankment engineering linking to the Sylhet–Tamabil border corridor. Weak/soft soil conditions along parts of the corridor have required design revisions.",
+      "scopeLead": "Key program activities & procurement packages:",
+      "scopeItems": [
+        {
+          "num": "1",
+          "title": "",
+          "body": "Upgrading 208.9 km of existing 2-lane National Highway N2 (Dhaka/Katchpur to Sylhet) into a 4-lane highway with dedicated service lanes on both sides"
+        },
+        {
+          "num": "2",
+          "title": "",
+          "body": "Geometric realignment at sharp curves and urban centers"
+        },
+        {
+          "num": "3",
+          "title": "",
+          "body": "Bridges, overpasses, road safety enhancements, and disaster/climate-resilient pavement and embankment engineering linking to the Sylhet–Tamabil border corridor. Weak/soft soil conditions along parts of the corridor have required design revisions."
+        }
+      ],
+      "scopeOppCallout": "",
+      "timelineRaw": "Advance contracting notice: Jan 2021; Tranche 1 (Loan 4108) active 2021–30 Jun 2026 (~21% physical progress as of Apr 2026 due to land/utility & weak-soil delays); Tranche 2 (Loan 4772 / 53382-003) approved 24 Apr 2026 with major civil works packages (DS-2, DS-3, DS-4, DS-5, DS-8, DS-10, DS-12A, WP-06B) signed Jun–Jul 2026; execution extending well beyond original Dec 2026 target.",
+      "timelineTag": "Tranche 2 Signed Jun–Jul 2026",
+      "timelineHeadline": "Advance contracting notice: Jan 2021",
+      "timelineMilestones": [
+        "Tranche 1 (Loan 4108) active 2021–30 Jun 2026 (~21% physical progress as of Apr 2026 due to land/utility & weak-soil delays)",
+        "Tranche 2 (Loan 4772 / 53382-003) approved 24 Apr 2026 with major civil works packages (DS-2, DS-3, DS-4, DS-5, DS-8, DS-10, DS-12A, WP-06B) signed Jun–Jul 2026",
+        "execution extending well beyond original Dec 2026 target."
+      ],
+      "relevanceRaw": "HIGH (Prime Active Opportunity): 208.9 km 4-lane + dual service lane corridor explicitly experiencing weak/soft soil and climate-resilience challenges, with ~79% of physical works remaining as of mid-2026 and Tranche 2 contracts newly signed in Jun–Jul 2026. Strong direct demand for Naue Secugrid® & Combigrid® (soft-ground stabilization, basal embankment reinforcement, paved road base reinforcement, MSE bridge approaches), Secutex® (filtration/separation), Secumat® (monsoon slope erosion control), and Secudrain® (structural drainage). Immediate outreach target to awarded contractors (e.g., Henan Highway Engineering–Mir Akhter JV) and PIC consultants (ICT/IRD/Sheladia).",
+      "relevanceTier": "High",
+      "relevanceRank": 5,
+      "relevanceHeadline": "HIGH (Prime Active Opportunity) Relevance",
+      "whyItMatters": "208.9 km 4-lane + dual service lane corridor explicitly experiencing weak/soft soil and climate-resilience challenges, with ~79% of physical works remaining as of mid-2026 and Tranche 2 contracts newly signed in Jun–Jul 2026. Strong direct demand for Naue Secugrid® & Combigrid® (soft-ground stabilization, basal embankment reinforcement, paved road base reinforcement, MSE bridge approaches), Secutex® (filtration/separation), Secumat® (monsoon slope erosion control), and Secudrain® (structural drainage). Immediate outreach target to awarded contractors (e.g., Henan Highway Engineering–Mir Akhter JV) and PIC consultants (ICT/IRD/Sheladia).",
+      "relevanceBreakdown": [],
+      "products": [
+        "Secutex",
+        "Secugrid",
+        "Combigrid",
+        "Secudrain",
+        "Secumat"
+      ],
+      "explicitProductMap": {
+        "Secutex": true,
+        "Secugrid": true,
+        "Combigrid": true,
+        "Secudrain": true,
+        "Secumat": true
+      },
+      "primaryProductSummary": "Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile, Secudrain® – Drainage Geocomposites, Secumat® – Erosion Control Mats",
+      "budget": "ADB MFF · Tranche 1 (Loan 4108) & Tranche 2 (Loan 4772)",
+      "stats": {
+        "total": 8,
+        "high": 8,
+        "medium": 0,
+        "low": 0,
+        "actionable": 8
+      }
+    },
+    {
+      "id": "NAUE-34",
+      "seq": 34,
+      "excelRow": 38,
+      "folder": "Bangladesh",
+      "folderLabel": "Batch 4 · Bangladesh",
+      "shortName": "Bangladesh SASEC Integrated Trade Facilitation (Land Ports)",
+      "title": "South Asia Subregional Economic Cooperation (SASEC) Integrated Trade Facilitation Sector Development Program (SDP)",
+      "countryRaw": "Bangladesh",
+      "countries": [
+        "Bangladesh"
+      ],
+      "locationRaw": "Akhaura (Brahmanbaria), Sonamasjid (Chapainawabganj), and Tamabil (Sylhet) Border Crossing Points (BCPs); plus design sites in Dhaka, Bibirbazar, Birol, Darshana, Sheola, Sonahat, and Teknaf",
+      "coordinatesRaw": "Akhaura: 23.8686° N, 91.2097° E\nSonamasjid: 24.8421° N, 88.1460° E\nTamabil: 25.1720° N, 92.0904° E",
+      "mapLocations": [
+        {
+          "name": "Akhaura Land Port (Brahmanbaria)",
+          "lat": 23.8686,
+          "lng": 91.2097,
+          "precision": "approximate",
+          "note": "BLPA/CW-01 land port works awarded Apr 2025: cargo yards, drainage, grading"
+        },
+        {
+          "name": "Sonamasjid Land Customs Station (Chapainawabganj)",
+          "lat": 24.8421,
+          "lng": 88.146,
+          "precision": "approximate",
+          "note": "NBR/CW-01 customs station civil works"
+        },
+        {
+          "name": "Tamabil Land Port (Sylhet)",
+          "lat": 25.172,
+          "lng": 92.0904,
+          "precision": "approximate",
+          "note": "Land port works: heavy truck yards & access roads"
+        }
+      ],
+      "tenderRefRaw": "ADB 53260-001 (Loan 4178-BAN / TA 6911-BAN); Works Packages BLPA/CW-01, NBR/CW-01; Goods NBR/GO-02, GO-03, BLPA/GO-02",
+      "tenderCodes": [
+        "ADB 53260-001",
+        "Loan 4178-BAN",
+        "TA 6911-BAN",
+        "BLPA/CW-01",
+        "NBR/CW-01",
+        "NBR/GO-02",
+        "BLPA/GO-02"
+      ],
+      "procuringOrgRaw": "National Board of Revenue (NBR), Bangladesh Land Port Authority (BLPA), and Ministry of Commerce; Funded by Asian Development Bank (ADB)",
+      "agencyShort": "ADB",
+      "donors": [
+        "ADB"
+      ],
+      "sectors": [
+        "Roads, Highways & Bridges"
+      ],
+      "salesChannel": "Direct + Specification",
+      "technicalScopeRaw": "Policy component: WTO Trade Facilitation Agreement compliance and customs modernization. Project component: design-and-build construction of climate-resilient integrated Land Customs Stations (LCSs) and Land Ports (LPs) at Akhaura, Sonamasjid (LCS only), and Tamabil BCPs—including heavy cargo transshipment yards, parking areas, warehouses, customs buildings, scanners/lab equipment; plus detailed engineering designs for Dhaka central customs and 6 future BCPs (Bibirbazar, Birol, Darshana, Sheola, Sonahat, Teknaf). Total financing: $151.04M ($143M ADB).",
+      "scopeLead": "Key program activities & procurement packages:",
+      "scopeItems": [
+        {
+          "num": "1",
+          "title": "",
+          "body": "Policy component: WTO Trade Facilitation Agreement compliance and customs modernization. Project component: design-and-build construction of climate-resilient integrated Land Customs Stations (LCSs) and Land Ports (LPs) at Akhaura, Sonamasjid (LCS only), and Tamabil BCPs—including heavy cargo transshipment yards, parking areas, warehouses, customs buildings, scanners/lab equipment"
+        },
+        {
+          "num": "2",
+          "title": "",
+          "body": "Plus detailed engineering designs for Dhaka central customs and 6 future BCPs (Bibirbazar, Birol, Darshana, Sheola, Sonahat, Teknaf). Total financing: $151.04M ($143M ADB)."
+        }
+      ],
+      "scopeOppCallout": "",
+      "timelineRaw": "ADB Board approval: 31 Mar 2022; Procurement Plan updated 26 Feb 2026 (Version 3); BLPA/CW-01 (Akhaura & Tamabil land ports, $19.06M) awarded 20 Apr 2025; NBR/CW-01 (LCS works at 3 BCPs) tendered mid-2025; goods & consulting packages active through 2026–2027; Project Closing Date: 30 Jun 2029.",
+      "timelineTag": "Active · Closing Date Jun 2029",
+      "timelineHeadline": "ADB Board approval: 31 Mar 2022",
+      "timelineMilestones": [
+        "Procurement Plan updated 26 Feb 2026 (Version 3)",
+        "BLPA/CW-01 (Akhaura & Tamabil land ports, $19.06M) awarded 20 Apr 2025",
+        "NBR/CW-01 (LCS works at 3 BCPs) tendered mid-2025",
+        "goods & consulting packages active through 2026–2027",
+        "Project Closing Date: 30 Jun 2029."
+      ],
+      "relevanceRaw": "MEDIUM (Targeted Civil & Environmental Fit): Civil works at Akhaura, Sonamasjid, and Tamabil BCPs (plus upcoming designs for 6 pipeline BCPs) include heavy-duty truck/cargo yards, internal access roads, drainage, and flood-resilient grading. Relevant Naue solutions: Secugrid® & Combigrid® (heavy-load port/yard pavement stabilization), Secutex® (subgrade separation), Secudrain® (yard/retaining wall drainage), and Bentofix® GCL / Carbofol® geomembranes (groundwater protection/containment for fuel, hazardous cargo, or washdown zones). Moderate share of total budget is civil earthworks compared to customs IT/scanners & buildings.",
+      "relevanceTier": "Moderate",
+      "relevanceRank": 3,
+      "relevanceHeadline": "MEDIUM (Targeted Civil & Environmental Fit) Relevance",
+      "whyItMatters": "Civil works at Akhaura, Sonamasjid, and Tamabil BCPs (plus upcoming designs for 6 pipeline BCPs) include heavy-duty truck/cargo yards, internal access roads, drainage, and flood-resilient grading. Relevant Naue solutions: Secugrid® & Combigrid® (heavy-load port/yard pavement stabilization), Secutex® (subgrade separation), Secudrain® (yard/retaining wall drainage), and Bentofix® GCL / Carbofol® geomembranes (groundwater protection/containment for fuel, hazardous cargo, or washdown zones). Moderate share of total budget is civil earthworks compared to customs IT/scanners & buildings.",
+      "relevanceBreakdown": [],
+      "products": [
+        "Carbofol",
+        "Bentofix",
+        "Secutex",
+        "Secugrid",
+        "Combigrid",
+        "Secudrain"
+      ],
+      "explicitProductMap": {
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secugrid": true,
+        "Combigrid": true,
+        "Secudrain": true
+      },
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile, Secudrain® – Drainage Geocomposites",
+      "budget": "US$ 151.04M (US$ 143M ADB)",
+      "stats": {
+        "total": 5,
+        "high": 0,
+        "medium": 2,
+        "low": 3,
+        "actionable": 2
+      }
+    },
+    {
+      "id": "NAUE-35",
+      "seq": 35,
+      "excelRow": 39,
+      "folder": "Bangladesh",
+      "folderLabel": "Batch 4 · Bangladesh",
+      "shortName": "Bangladesh SASEC Chattogram–Dohazari Railway (Dual Gauge)",
+      "title": "South Asia Subregional Economic Cooperation (SASEC) Chattogram–Dohazari Railway Project",
+      "countryRaw": "Bangladesh",
+      "countries": [
+        "Bangladesh"
+      ],
+      "locationRaw": "Chattogram–Gumdandi–Dohazari & Pahartali–Jhautala Rail Corridor (Chattogram District)",
+      "coordinatesRaw": "Chattogram: 22.3500° N, 91.8333° E\nDohazari: 22.1639° N, 92.0733° E",
+      "mapLocations": [
+        {
+          "name": "Chattogram – Dual-Gauge Start (WD-1)",
+          "lat": 22.35,
+          "lng": 91.8333,
+          "precision": "approximate",
+          "note": "WD-1: 31.41 km track conversion incl. Pahartali–Jhautala line; sub-ballast reinforcement"
+        },
+        {
+          "name": "Dohazari – Dual-Gauge End (WD-2)",
+          "lat": 22.1639,
+          "lng": 92.0733,
+          "precision": "approximate",
+          "note": "WD-2: 31.47 km Gumdandi–Dohazari track & embankment works"
+        }
+      ],
+      "tenderRefRaw": "ADB 57296-002 BAN (Loans 4665-BAN & 4666-BAN); Works Packages WD-1 & WD-2; Goods GD-1 to GD-5 (incl. BR/ADB/30); Supervision SD-1",
+      "tenderCodes": [
+        "ADB 57296-002",
+        "Loans 4665-BAN",
+        "BR/ADB/30"
+      ],
+      "procuringOrgRaw": "Bangladesh Railway (Ministry of Railways); Funded by Asian Development Bank (ADB)",
+      "agencyShort": "ADB",
+      "donors": [
+        "ADB"
+      ],
+      "sectors": [
+        "Rail & Transport"
+      ],
+      "salesChannel": "Direct + Specification",
+      "technicalScopeRaw": "Upgrading 36 km of existing meter-gauge track to dual-gauge track (WD-1 Chattogram–Gumdandi 31.41 km main & loop incl. 2.5 km new Pahartali–Jhautala dual-gauge line, signaling & telecom; WD-2 Gumdandi–Dohazari 31.47 km main & loop); procurement of 30 meter-gauge diesel-electric locomotives (GD-1), broad-gauge ballast tamping machine (GD-2), ultrasonic rail flaw detection system, and permanent way tools/equipment.",
+      "scopeLead": "Key program activities & procurement packages:",
+      "scopeItems": [
+        {
+          "num": "1",
+          "title": "",
+          "body": "Upgrading 36 km of existing meter-gauge track to dual-gauge track (WD-1 Chattogram–Gumdandi 31.41 km main & loop incl. 2.5 km new Pahartali–Jhautala dual-gauge line, signaling & telecom"
+        },
+        {
+          "num": "2",
+          "title": "",
+          "body": "WD-2 Gumdandi–Dohazari 31.47 km main & loop)"
+        },
+        {
+          "num": "3",
+          "title": "",
+          "body": "Procurement of 30 meter-gauge diesel-electric locomotives (GD-1), broad-gauge ballast tamping machine (GD-2), ultrasonic rail flaw detection system, and permanent way tools/equipment."
+        }
+      ],
+      "scopeOppCallout": "",
+      "timelineRaw": "Advance contracting notice: 25 Oct 2024; Construction supervision (SD-1) tendered Mar–May 2025; Civil works (WD-1 & WD-2) tendered Jul–Oct 2025; ADB Loans 4665/4666 approved 23 Oct 2025, signed 22 Dec 2025, effective 3 Mar 2026; Locomotive tender (BR/ADB/30) open Oct–3 Dec 2026; Loan Closing Date: 31 Dec 2030.",
+      "timelineTag": "Loans Effective Mar 2026 · Works 2026–2030",
+      "timelineHeadline": "Advance contracting notice: 25 Oct 2024",
+      "timelineMilestones": [
+        "Construction supervision (SD-1) tendered Mar–May 2025",
+        "Civil works (WD-1 & WD-2) tendered Jul–Oct 2025",
+        "ADB Loans 4665/4666 approved 23 Oct 2025, signed 22 Dec 2025, effective 3 Mar 2026",
+        "Locomotive tender (BR/ADB/30) open Oct–3 Dec 2026",
+        "Loan Closing Date: 31 Dec 2030."
+      ],
+      "relevanceRaw": "HIGH (Prime Active Railway Opportunity): Major dual-gauge track conversion and new embankment works in coastal, high-rainfall Chattogram (active 2026–2030). Direct match for Naue railway geosynthetics (backed by Deutsche Bahn HPQ / DBS 918 039 specifications): Combigrid® & Secugrid® (sub-ballast & formation reinforcement to raise bearing capacity and curb differential settlement), Secutex® (sub-ballast filtration & separation), Secudrain® (trackside/bridge abutment backfill drainage), Secumat® (slope erosion protection), and Carbofol®/Bentofix® (groundwater sealing). Ideal window to engage WD-1/WD-2 contractors and SD-1 supervision consultants.",
+      "relevanceTier": "High",
+      "relevanceRank": 5,
+      "relevanceHeadline": "HIGH (Prime Active Railway Opportunity) Relevance",
+      "whyItMatters": "Major dual-gauge track conversion and new embankment works in coastal, high-rainfall Chattogram (active 2026–2030). Direct match for Naue railway geosynthetics (backed by Deutsche Bahn HPQ / DBS 918 039 specifications): Combigrid® & Secugrid® (sub-ballast & formation reinforcement to raise bearing capacity and curb differential settlement), Secutex® (sub-ballast filtration & separation), Secudrain® (trackside/bridge abutment backfill drainage), Secumat® (slope erosion protection), and Carbofol®/Bentofix® (groundwater sealing). Ideal window to engage WD-1/WD-2 contractors and SD-1 supervision consultants.",
+      "relevanceBreakdown": [],
+      "products": [
+        "Carbofol",
+        "Bentofix",
+        "Secutex",
+        "Secugrid",
+        "Combigrid",
+        "Secudrain",
+        "Secumat"
+      ],
+      "explicitProductMap": {
+        "Carbofol": true,
+        "Bentofix": true,
+        "Secutex": true,
+        "Secugrid": true,
+        "Combigrid": true,
+        "Secudrain": true,
+        "Secumat": true
+      },
+      "primaryProductSummary": "Carbofol® – Geomembranes (HDPE / PP), Bentofix® – Geosynthetic Clay Liners (GCLs), Secutex® – Nonwoven Geotextiles, Secugrid® – Geogrids (Soil Reinforcement), Combigrid® – Composite Geogrid + Geotextile, Secudrain® – Drainage Geocomposites, Secumat® – Erosion Control Mats",
+      "budget": "ADB Loans 4665 & 4666-BAN (Closing Dec 2030)",
+      "stats": {
+        "total": 8,
+        "high": 2,
+        "medium": 1,
+        "low": 5,
+        "actionable": 3
       }
     }
   ]

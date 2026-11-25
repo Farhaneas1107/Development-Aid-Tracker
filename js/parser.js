@@ -213,9 +213,29 @@
         tenderCodes: refRaw ? [refRaw.split(/\r?\n/)[0].slice(0, 42)] : [],
         procuringOrgRaw: orgRaw,
         agencyShort: orgRaw.split(",")[0].slice(0, 45),
-        donors: /World Bank/i.test(orgRaw) ? ["World Bank"] : /USAID/i.test(orgRaw) ? ["USAID"] : /KfW/i.test(orgRaw) ? ["KfW"] : ["International Donor"],
+        donors: /Asian Development Bank|\bADB\b/i.test(orgRaw)
+          ? ["ADB"]
+          : /World Bank/i.test(orgRaw)
+          ? ["World Bank"]
+          : /USAID/i.test(orgRaw)
+          ? ["USAID"]
+          : /KfW/i.test(orgRaw)
+          ? ["KfW"]
+          : /JICA/i.test(orgRaw)
+          ? ["JICA"]
+          : /UNDP/i.test(orgRaw)
+          ? ["UNDP"]
+          : /FAO/i.test(orgRaw)
+          ? ["FAO"]
+          : /Islamic Development Bank|\bIDB\b|\bIsDB\b/i.test(orgRaw)
+          ? ["Islamic Development Bank (IsDB)"]
+          : /European|\bENI\b/i.test(orgRaw)
+          ? ["EU (ENI)"]
+          : ["International Donor"],
         sectors: /landfill|waste/i.test(title + scopeRaw)
           ? ["Sanitary Landfills & Waste"]
+          : /rail|railway/i.test(title + scopeRaw)
+          ? ["Rail & Transport"]
           : /road|bridge|highway/i.test(title + scopeRaw)
           ? ["Roads, Highways & Bridges"]
           : /canal|irrigat|dam/i.test(title + scopeRaw)

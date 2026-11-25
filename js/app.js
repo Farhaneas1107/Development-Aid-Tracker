@@ -17,7 +17,7 @@ function ensureSheets() {
   var s1 = ss.getSheetByName(SUMMARY_SHEET);
   if (!s1) {
     s1 = ss.insertSheet(SUMMARY_SHEET);
-    s1.getRange(1,1,1,9).setValues([["Project ID","Current Stage","Starred","Assigned Lead","Review Count","Reviewers","Latest Review Summary","Last Updated (Auto)","Raw Merged JSON"]]).setFontWeight("bold").setBackground("#00549F").setFontColor("#FFFFFF");
+    s1.getRange(1,1,1,9).setValues([["Project ID","Current Stage","Starred","Assigned Lead","Review Count","Reviewers","Latest Review Summary","Last Updated (Auto)","Raw Merged JSON"]]).setFontWeight("bold").setBackground("#283C32").setFontColor("#FFFFFF");
     s1.setFrozenRows(1);
   }
   var s2 = ss.getSheetByName(LOG_SHEET);
@@ -302,7 +302,7 @@ function doPost(e) {
       state.payload.productsCatalog.find(p => p.id === prodId) || {
         id: prodId,
         name: prodId + "®",
-        color: "#0284c7",
+        color: "#2bac70",
         category: "Geosynthetics",
         shortDesc: ""
       }
@@ -316,7 +316,7 @@ function doPost(e) {
         label: topicId,
         shortLabel: topicId,
         icon: "📌",
-        color: "#0284c7",
+        color: "#2bac70",
         desc: ""
       }
     );
@@ -511,7 +511,7 @@ function doPost(e) {
       if (label) label.textContent = "☁️ Firebase Live";
       if (modalText) modalText.innerHTML = `<strong style="color:#10b981">● Connected to Firebase Multi-Reviewer Database (Option A)</strong>`;
     } else {
-      if (dot) dot.style.background = state.serverConnected ? "#38bdf8" : "#94a3b8";
+      if (dot) dot.style.background = state.serverConnected ? "#2bac70" : "#94a3b8";
       if (label) label.textContent = state.serverConnected ? "💻 Local Server" : "☁️ Cloud Sync";
       if (modalText) {
         modalText.textContent = state.serverConnected
@@ -807,10 +807,38 @@ function doPost(e) {
     projects.forEach(p => (folderCounts[p.folder] = (folderCounts[p.folder] || 0) + 1));
     const folderSel = document.getElementById("filter-folder");
     folderSel.innerHTML =
-      `<option value="all">All Document Batches (3)</option>` +
+      `<option value="all">All Document Batches (${Object.keys(folderCounts).length})</option>` +
       Object.entries(folderCounts)
         .map(([f, n]) => `<option value="${escHtml(f)}">${escHtml(f)} (${n})</option>`)
         .join("");
+
+    // Relevance tiers (counts always reflect the loaded data)
+    const tierCount = t => projects.filter(p => p.relevanceTier === t).length;
+    const tierSel = document.getElementById("filter-tier");
+    if (tierSel) {
+      const topN = tierCount("Very High") + tierCount("High");
+      const actN = projects.filter(p => p.relevanceTier !== "None").length;
+      tierSel.innerHTML =
+        `<option value="all">All Relevance Tiers (${projects.length})</option>` +
+        `<option value="top_priority">★ Very High & High Only (${topN})</option>` +
+        `<option value="actionable">Actionable Only (Excl. None) (${actN})</option>` +
+        [["Very High", "Very High"], ["High", "High"], ["Medium-to-High", "Medium-to-High"],
+         ["Moderate", "Moderate / Medium"], ["Low-to-Medium", "Low-to-Medium"], ["Low", "Low"],
+         ["None", "None — Non-Civil"]]
+          .map(([v, label]) => `<option value="${v}">${label} (${tierCount(v)})</option>`)
+          .join("");
+    }
+
+    // Keep header pill + portfolio notice in sync with the loaded data
+    const nBatches = Object.keys(folderCounts).length;
+    const pill = document.getElementById("brand-pill");
+    if (pill) pill.textContent = `${projects.length} Programs · ${nBatches} Batches`;
+    const notice = document.getElementById("banner-program-count");
+    if (notice) notice.textContent = `${projects.length} documented programs`;
+    const folderList = document.getElementById("banner-folder-list");
+    if (folderList) {
+      folderList.innerHTML = Object.keys(folderCounts).map(f => `<em>${escHtml(f)}</em>`).join(", ");
+    }
   }
 
   function syncFilterControlsUI() {
@@ -853,9 +881,9 @@ function doPost(e) {
     const kpiContainer = document.getElementById("kpi-grid");
     kpiContainer.innerHTML = `
       <div class="kpi-card ${state.filters.tier === 'all' && state.filters.reviewStatus === 'all' && state.view !== 'reviews' ? 'active-kpi' : ''}" data-kpi-action="reset">
-        <div class="kpi-label"><span>Total Programs</span><span>Batches 1–3</span></div>
+        <div class="kpi-label"><span>Total Programs</span><span>${new Set(all.map(p => p.folder)).size} Batches</span></div>
         <div class="kpi-value">${totalPrograms} <small>Active Pipeline</small></div>
-        <div class="kpi-sub">All 31 programs pending ground works</div>
+        <div class="kpi-sub">All ${totalPrograms} programs pending ground works</div>
       </div>
       <div class="kpi-card ${state.filters.tier === 'top_priority' ? 'active-kpi' : ''}" data-kpi-action="top_priority">
         <div class="kpi-label"><span>Flagship Priority</span><span style="color:var(--tier-vhigh-solid)">● Click to Filter</span></div>
@@ -953,7 +981,7 @@ function doPost(e) {
         const pct = (info.count / maxVal) * 100;
         const tMeta = dim === "topic" ? getTopicMeta(name) : null;
         const displayLabel = tMeta ? `${tMeta.icon} ${tMeta.shortLabel}` : name;
-        const barColor = tMeta ? tMeta.color : "#0284c7";
+        const barColor = tMeta ? tMeta.color : "#2bac70";
         const isSelected =
           (dim === "country" && state.filters.country === name) ||
           (dim === "topic" && state.filters.topic === name) ||
@@ -1158,7 +1186,7 @@ function doPost(e) {
               </select>
               ${
                 rev.entries.length > 0
-                  ? `<button type="button" class="prod-chip" style="border-color:#059669;color:#047857" data-action="open-dossier" data-id="${p.id}" title="Click to read ${rev.entries.length} team review(s)">
+                  ? `<button type="button" class="prod-chip" style="border-color:var(--tier-vhigh-border);color:var(--tier-vhigh-text);background:var(--tier-vhigh-bg)" data-action="open-dossier" data-id="${p.id}" title="Click to read ${rev.entries.length} team review(s)">
                       💬 ${rev.entries.length} Review${rev.entries.length > 1 ? "s" : ""}
                     </button>`
                   : ""
@@ -1595,7 +1623,7 @@ function doPost(e) {
           const endPt = [loc.endLat, loc.endLng];
           bounds.push(endPt);
           projectBoundsMap[p.id].push(endPt);
-          L.polyline([pt, endPt], { color: "#38bdf8", weight: 5, opacity: 0.9 }).addTo(map);
+          L.polyline([pt, endPt], { color: "#2bac70", weight: 5, opacity: 0.9 }).addTo(map);
           L.polyline([pt, endPt], { color, weight: 3, opacity: 1 }).addTo(map);
         }
 
@@ -1607,17 +1635,17 @@ function doPost(e) {
             : "Regional Reference Location";
 
         const popupHtml = `
-          <div style="min-width:240px;font-family:Inter,sans-serif">
+          <div style="min-width:240px;font-family:'Noto Sans',sans-serif">
             <div style="font-size:11px;font-weight:700;color:${color};text-transform:uppercase">${escHtml(p.id)} · ${escHtml(p.relevanceTier)}</div>
-            <div style="font-size:13.5px;font-weight:700;margin:3px 0;color:#0f172a">${escHtml(loc.name)}</div>
-            <div style="font-size:11px;color:#0284c7;font-weight:600;margin-bottom:4px">📍 ${loc.lat.toFixed(5)}°N, ${loc.lng.toFixed(5)}°E (${precisionBadge})</div>
+            <div style="font-size:13.5px;font-weight:700;margin:3px 0;color:#283c32">${escHtml(loc.name)}</div>
+            <div style="font-size:11px;color:#1f8a57;font-weight:600;margin-bottom:4px">📍 ${loc.lat.toFixed(5)}°N, ${loc.lng.toFixed(5)}°E (${precisionBadge})</div>
             <div style="font-size:12px;color:#475569;margin-bottom:6px">${escHtml(p.shortName)}</div>
-            <div style="font-size:11.5px;background:#f1f5f9;padding:5px 7px;border-radius:4px;margin-bottom:8px;color:#1e293b">
+            <div style="font-size:11.5px;background:#f1f3f2;padding:5px 7px;border-radius:4px;margin-bottom:8px;color:#283c32">
               ${escHtml(loc.note || p.salesChannel)}
             </div>
             <div style="display:flex;gap:6px;justify-content:space-between;align-items:center">
-              <a href="https://www.google.com/maps?q=${loc.lat},${loc.lng}&t=k" target="_blank" rel="noopener" style="font-size:11.5px;color:#0284c7;font-weight:600">Google Earth ↗</a>
-              <button onclick="window.NaueApp.openDossier('${p.id}')" style="background:#00549f;color:#fff;border:none;padding:4px 9px;border-radius:4px;font-size:11.5px;cursor:pointer;font-weight:600">Open Dossier →</button>
+              <a href="https://www.google.com/maps?q=${loc.lat},${loc.lng}&t=k" target="_blank" rel="noopener" style="font-size:11.5px;color:#1f8a57;font-weight:600">Google Earth ↗</a>
+              <button onclick="window.NaueApp.openDossier('${p.id}')" style="background:#1f8a57;color:#fff;border:none;padding:4px 9px;border-radius:4px;font-size:11.5px;cursor:pointer;font-weight:600">Open Dossier →</button>
             </div>
           </div>
         `;
@@ -1996,6 +2024,14 @@ function doPost(e) {
           .join("")}
       </div>
 
+      <div class="matrix-legend-bar">
+        <strong style="color:var(--text-primary)">Product Fit Matrix (${projects.length} Programs in View)</strong>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <span><strong style="color:var(--brand-primary)">●</strong> Explicitly named in document</span>
+          <span><strong style="color:var(--brand-primary)">◐</strong> Applicable system match</span>
+          <span><strong>·</strong> Not applicable</span>
+        </div>
+      </div>
       <div class="table-wrapper">
         <table class="tracker-table matrix-table">
           <thead>
@@ -2144,13 +2180,13 @@ function doPost(e) {
         </div>
         <div class="opp-stacked-bar">
           <div style="width:${hPct}%;background:#059669" title="High / Very High: ${project.stats.high}"></div>
-          <div style="width:${mPct}%;background:#0284c7" title="Medium / Moderate: ${project.stats.medium}"></div>
+          <div style="width:${mPct}%;background:#d97706" title="Medium / Moderate: ${project.stats.medium}"></div>
           <div style="width:${lPct}%;background:#cbd5e1" title="Low / Non-Civil: ${project.stats.low}"></div>
         </div>
         <div style="display:flex;gap:18px;font-size:12px;color:var(--text-muted);flex-wrap:wrap">
-          <span><strong style="color:#059669">● ${project.stats.high}</strong> Very High / High Relevance</span>
-          <span><strong style="color:#0284c7">● ${project.stats.medium}</strong> Medium / Moderate Relevance</span>
-          <span><strong style="color:#64748b">● ${project.stats.low}</strong> Low / Non-Civil Tenders</span>
+          <span><strong style="color:var(--tier-vhigh-text)">● ${project.stats.high}</strong> Very High / High Relevance</span>
+          <span><strong style="color:var(--tier-mod-text)">● ${project.stats.medium}</strong> Medium / Moderate Relevance</span>
+          <span><strong style="color:var(--text-muted)">● ${project.stats.low}</strong> Low / Non-Civil Tenders</span>
         </div>
       </div>
 
@@ -2267,7 +2303,8 @@ function doPost(e) {
         ${
           project.mapLocations.length > 0
             ? `
-            <table class="coord-table">
+            <div class="table-wrapper" style="box-shadow:none">
+            <table class="coord-table" style="margin-top:0">
               <thead>
                 <tr>
                   <th>Site / Intervention Name</th>
@@ -2282,12 +2319,12 @@ function doPost(e) {
                     loc => `
                   <tr>
                     <td><strong>${escHtml(loc.name)}</strong></td>
-                    <td style="font-family:var(--font-mono);font-size:11.5px">
+                    <td style="font-family:var(--font-mono);font-size:11.5px;white-space:nowrap">
                       ${loc.lat.toFixed(5)}°N, ${loc.lng.toFixed(5)}°E
                       <span style="color:var(--text-muted)">(${escHtml(loc.precision)})</span>
                     </td>
                     <td>${escHtml(loc.note || "")}</td>
-                    <td class="no-print">
+                    <td class="no-print" style="white-space:nowrap">
                       <a href="https://www.google.com/maps?q=${loc.lat},${loc.lng}&t=k" target="_blank" rel="noopener" style="color:var(--brand-primary);font-weight:600;text-decoration:none">
                         Google Earth / Maps ↗
                       </a>
@@ -2298,6 +2335,7 @@ function doPost(e) {
                   .join("")}
               </tbody>
             </table>
+            </div>
           `
             : ""
         }
@@ -2315,7 +2353,7 @@ function doPost(e) {
         </div>
 
         <div class="review-panel">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+          <div class="dossier-form-grid">
             <div>
               <label style="font-size:11.5px;font-weight:700;display:block;margin-bottom:4px">Overall Project Pursuit Stage</label>
               <select id="dossier-status-sel" class="filter-select">
@@ -2351,7 +2389,7 @@ function doPost(e) {
               </span>
             </div>
 
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <div class="dossier-form-grid">
               <div>
                 <label style="font-size:11px;font-weight:700;color:var(--text-muted);display:block;margin-bottom:3px">Reviewer Name</label>
                 <input type="text" id="dossier-comment-author" class="filter-select" placeholder="Your Name (e.g., Salam)" value="${escHtml(getSavedReviewerName())}" />

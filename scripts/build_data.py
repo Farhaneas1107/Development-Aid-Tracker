@@ -7,6 +7,8 @@ for the Naue Project Opportunity Intelligence Portal.
 
 import json
 import re
+import sys
+from datetime import date
 from pathlib import Path
 import openpyxl
 
@@ -264,7 +266,7 @@ CURATED_META = {
         "salesChannel": "Direct + Specification",
         "timelineTag": "Doc. 2016–2022 · Pending Packages",
         "budget": "~US$ 78M+ Documented Works",
-        "stats": {"total": 18, "high": 15, "medium": 3, "low": 0, "actionable": 15},
+        "stats": {"total": 18, "high": 15, "medium": 0, "low": 3, "actionable": 15},
         "mapLocations": [
             {"name": "Mosul 2nd, 4th & 5th Tigris Bridges", "lat": 36.3500, "lng": 43.1167, "precision": "approximate", "note": "$19.75M river bridge packages & approach embankments"},
             {"name": "Samarra Diversion Bridge & Al-Dhuluiya", "lat": 34.1833, "lng": 43.8667, "precision": "approximate", "note": "$15.1M Samarra & $4.79M Al-Dhuluiya bridge approaches"},
@@ -360,7 +362,7 @@ CURATED_META = {
         "salesChannel": "Programmatic / Downstream",
         "timelineTag": "Diagnostic Precursor ('Towards 2030')",
         "budget": "US$ 100M ECRP + IDA18 Diagnostics",
-        "stats": {"total": 2, "high": 0, "medium": 0, "low": 2, "actionable": 1},
+        "stats": {"total": 2, "high": 0, "medium": 1, "low": 1, "actionable": 1},
         "mapLocations": [
             {"name": "Sana'a Sanitation Chain Mapping", "lat": 15.3694, "lng": 44.1910, "precision": "approximate", "note": "Diagnostic precursor for future WWTP lagoon rehab"},
             {"name": "Aden Sanitation Chain Mapping", "lat": 12.7855, "lng": 45.0181, "precision": "approximate", "note": "Diagnostic precursor for future wastewater ponds"}
@@ -374,7 +376,7 @@ CURATED_META = {
         "salesChannel": "Direct Civil Works Supply",
         "timelineTag": "Doc. 2016–2021 · 1 Civil Lot",
         "budget": "~60 Sub-Contracts ($14.89M+ Goods)",
-        "stats": {"total": 60, "high": 0, "medium": 0, "low": 60, "actionable": 1},
+        "stats": {"total": 60, "high": 0, "medium": 1, "low": 59, "actionable": 1},
         "mapLocations": [
             {"name": "Heet 132kV Substation Civil Works (Anbar)", "lat": 33.6333, "lng": 42.8167, "precision": "approximate", "note": "Transformer oil bund containment & substation yard stabilization"}
         ]
@@ -387,7 +389,7 @@ CURATED_META = {
         "salesChannel": "Programmatic / Downstream",
         "timelineTag": "USAID Multi-Year Forecast",
         "budget": "US$ 50M+ Multi-Mission Awards",
-        "stats": {"total": 8, "high": 0, "medium": 0, "low": 8, "actionable": 2},
+        "stats": {"total": 8, "high": 0, "medium": 2, "low": 6, "actionable": 2},
         "mapLocations": [
             {"name": "Barbados Coastal Climate Adaptation", "lat": 13.1939, "lng": -59.5432, "precision": "regional", "note": "$10M–$24.99M climate adaptation (potential coastal erosion control)"},
             {"name": "Nigeria Urban WASH Support", "lat": 9.0765, "lng": 7.3986, "precision": "regional", "note": "$1M–$3.99M urban water utility investment planning"}
@@ -557,6 +559,64 @@ CURATED_META = {
             {"name": "North Amman (Shafa Badran) & As Salt Sewerage/Sludge", "lat": 32.0636, "lng": 35.8856, "precision": "regional", "note": "Sewage sludge drying beds, digestate lagoons & sewer networks"},
             {"name": "Zarqa (Sukhneh) & Irbid Agricultural Reuse Reservoirs", "lat": 32.1333, "lng": 36.0667, "precision": "regional", "note": "Large-scale treated wastewater storage reservoirs for agriculture"}
         ]
+    },
+    36: {
+        "shortName": "Bangladesh SASEC Elenga–Hatikumrul–Rangpur Highway (Phase 2)",
+        "countries": ["Bangladesh"],
+        "sectors": ["Roads, Highways & Bridges"],
+        "donors": ["ADB"],
+        "salesChannel": "Direct Civil Works Supply",
+        "timelineTag": "Tranche 4 Active · MFF closes Aug 2027",
+        "budget": "US$ 1,672.6M (US$ 1,200M ADB)",
+        "stats": {"total": 11, "high": 9, "medium": 0, "low": 2, "actionable": 9},
+        "mapLocations": [
+            {"name": "Elenga (Tangail) – Highway Start", "lat": 24.3352, "lng": 89.9252, "precision": "approximate", "note": "190 km 2→4 lane widening over alluvial floodplain & soft subgrade"},
+            {"name": "Hatikumrul Interchange (Sirajganj)", "lat": 24.4293, "lng": 89.5480, "precision": "approximate", "note": "Interchange improvement (WP-13): MSE walls & geogrid-reinforced abutments"},
+            {"name": "Rangpur – Highway End", "lat": 25.7466, "lng": 89.2517, "precision": "approximate", "note": "Tranche 4 continuation works & 6-year performance-based maintenance"}
+        ]
+    },
+    37: {
+        "shortName": "Bangladesh SASEC Dhaka–Sylhet Corridor Road (N2)",
+        "countries": ["Bangladesh"],
+        "sectors": ["Roads, Highways & Bridges"],
+        "donors": ["ADB"],
+        "salesChannel": "Direct Civil Works Supply",
+        "timelineTag": "Tranche 2 Signed Jun–Jul 2026",
+        "budget": "ADB MFF · Tranche 1 (Loan 4108) & Tranche 2 (Loan 4772)",
+        "stats": {"total": 8, "high": 8, "medium": 0, "low": 0, "actionable": 8},
+        "mapLocations": [
+            {"name": "Katchpur (Dhaka) – Corridor Start", "lat": 23.7022, "lng": 90.5256, "precision": "approximate", "note": "208.9 km N2 upgrade to 4-lane with service lanes; weak soil design revisions"},
+            {"name": "Sylhet – Corridor End", "lat": 24.9000, "lng": 91.8830, "precision": "approximate", "note": "Tranche 2 civil packages (DS-2 to DS-12A, WP-06B) ~79% of works remaining"}
+        ]
+    },
+    38: {
+        "shortName": "Bangladesh SASEC Integrated Trade Facilitation (Land Ports)",
+        "countries": ["Bangladesh"],
+        "sectors": ["Roads, Highways & Bridges"],
+        "donors": ["ADB"],
+        "salesChannel": "Direct + Specification",
+        "timelineTag": "Active · Closing Date Jun 2029",
+        "budget": "US$ 151.04M (US$ 143M ADB)",
+        "stats": {"total": 5, "high": 0, "medium": 2, "low": 3, "actionable": 2},
+        "mapLocations": [
+            {"name": "Akhaura Land Port (Brahmanbaria)", "lat": 23.8686, "lng": 91.2097, "precision": "approximate", "note": "BLPA/CW-01 land port works awarded Apr 2025: cargo yards, drainage, grading"},
+            {"name": "Sonamasjid Land Customs Station (Chapainawabganj)", "lat": 24.8421, "lng": 88.1460, "precision": "approximate", "note": "NBR/CW-01 customs station civil works"},
+            {"name": "Tamabil Land Port (Sylhet)", "lat": 25.1720, "lng": 92.0904, "precision": "approximate", "note": "Land port works: heavy truck yards & access roads"}
+        ]
+    },
+    39: {
+        "shortName": "Bangladesh SASEC Chattogram–Dohazari Railway (Dual Gauge)",
+        "countries": ["Bangladesh"],
+        "sectors": ["Rail & Transport"],
+        "donors": ["ADB"],
+        "salesChannel": "Direct + Specification",
+        "timelineTag": "Loans Effective Mar 2026 · Works 2026–2030",
+        "budget": "ADB Loans 4665 & 4666-BAN (Closing Dec 2030)",
+        "stats": {"total": 8, "high": 2, "medium": 1, "low": 5, "actionable": 3},
+        "mapLocations": [
+            {"name": "Chattogram – Dual-Gauge Start (WD-1)", "lat": 22.3500, "lng": 91.8333, "precision": "approximate", "note": "WD-1: 31.41 km track conversion incl. Pahartali–Jhautala line; sub-ballast reinforcement"},
+            {"name": "Dohazari – Dual-Gauge End (WD-2)", "lat": 22.1639, "lng": 92.0733, "precision": "approximate", "note": "WD-2: 31.47 km Gumdandi–Dohazari track & embankment works"}
+        ]
     }
 }
 
@@ -630,7 +690,7 @@ def extract_products(scope_text: str, rel_text: str, sheet2_products: str, infer
 
 def parse_scope(scope_text: str):
     if not scope_text:
-        return "", []
+        return "", [], ""
     text = scope_text.strip()
     lines = [ln.strip() for ln in text.split("\n") if ln.strip()]
 
@@ -685,7 +745,7 @@ def parse_scope(scope_text: str):
             # Check if single paragraph with semicolon-separated clauses (like Dev Aid_3)
             if ";" in ln and len(ln) > 180:
                 clauses = [c.strip() for c in ln.split(";") if c.strip()]
-                lead = clauses[0] + "."
+                lead = "Key program activities & procurement packages:"
                 for idx, cl in enumerate(clauses, 1):
                     cl_clean = re.sub(r"^and\s+", "", cl, flags=re.I)
                     items.append({"num": str(idx), "title": "", "body": cl_clean[0].upper() + cl_clean[1:]})
@@ -764,6 +824,12 @@ def extract_tender_codes(ref_text: str):
         r"SOL-\d+-\d+-\d+",
         r"ENI\s*/\s*\d{4}\s*/\s*[\d\-]+",
         r"CRIS\s*[A-Za-z0-9/\- ]+",
+        r"ADB\s+\d{5}-(?:BAN|\d{3})",
+        r"MFF\s*\d{4}",
+        r"Loans?\s+\d{4}(?:-[A-Z]{3})?",
+        r"TA\s+\d{4}-[A-Z]{3}",
+        r"(?:BLPA|NBR)/[A-Z]{2}-\d+",
+        r"BR/ADB/\d+",
     ]
     for pat in patterns:
         for m in re.findall(pat, ref_text):
@@ -782,10 +848,12 @@ def main():
     s1 = wb["Project Opportunity Tracker"]
     s2 = wb["Opportunity Dashboard & KPIs"]
 
-    # Map Sheet 2 KPI rows (rows 5..11 correspond to Sheet 1 rows 5..11)
+    # Map Sheet 2 KPI rows (dashboard row N describes Sheet 1 row N); stops at the TOTAL row
     sheet2_by_row = {}
-    for idx, r in enumerate(range(5, 12), start=5):
-        vals = [s2.cell(r, c).value for c in range(1, s2.max_column + 1)]
+    for idx in range(5, s2.max_row + 1):
+        vals = [s2.cell(idx, c).value for c in range(1, s2.max_column + 1)]
+        if not vals[0] or str(vals[0]).strip().upper().startswith("TOTAL"):
+            break
         sheet2_by_row[idx] = {
             "refShort": vals[0],
             "countryShort": vals[1],
@@ -805,7 +873,19 @@ def main():
         "Development Aid": "Batch 1 · Development Aid",
         "Development Aid_2": "Batch 2 · Development Aid 2",
         "Development Aid_3": "Batch 3 · Development Aid 3",
+        "Bangladesh": "Batch 4 · Bangladesh",
     }
+
+    def _num(v):
+        return v if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+    def stats_for(row, meta_stats):
+        """Prefer the dashboard sheet's counts (single source of truth); fall back to curated metadata."""
+        info = sheet2_by_row.get(row, {})
+        t, h, m, l = (_num(info.get(k)) for k in ("totalSub", "highOpps", "medOpps", "lowOpps"))
+        if None not in (t, h, m, l):
+            return {"total": int(t), "high": int(h), "medium": int(m), "low": int(l), "actionable": int(h + m)}
+        return meta_stats or {"total": 1, "high": 0, "medium": 1, "low": 0, "actionable": 1}
 
     for r in range(5, s1.max_row + 1):
         vals = [s1.cell(r, c).value for c in range(1, s1.max_column + 1)]
@@ -874,16 +954,20 @@ def main():
             "explicitProductMap": explicit_product_map,
             "primaryProductSummary": s2_info.get("productFit") or "",
             "budget": meta.get("budget", "Not specified"),
-            "stats": meta.get("stats", {"total": 1, "high": 0, "medium": 1, "low": 0, "actionable": 1}),
+            "stats": stats_for(r, meta.get("stats")),
         }
         projects.append(proj)
 
+    n_programs = len(projects)
+    n_batches = len({p["folder"] for p in projects})
     payload = {
         "documentTitle": "NAUE GEOSYNTHETICS — INTERNATIONAL DEVELOPMENT AID PROJECT OPPORTUNITY TRACKER",
-        "documentSubtitle": "Unified Interactive Intelligence Portal across All 31 Development Aid Programs (Batches 1–3) | Technical Scope, Geosynthetic Product Fit, Site Locations & Team Review Workflow",
+        "documentSubtitle": f"Unified Interactive Intelligence Portal across All {n_programs} Development Aid Programs (Batches 1–{n_batches}) | Technical Scope, Geosynthetic Product Fit, Site Locations & Team Review Workflow",
         "sourceFile": "Naue_Project_Opportunity_Tracker.xlsx",
-        "generatedAt": "2026-10-28",
-        "executionContextNote": "All 31 documented programs—including multi-year tenders with earlier scheduled dates that have not yet started physical execution—are active in this tracker for review, consultant specification, and civil contractor pursuit.",
+        "generatedAt": date.today().isoformat(),
+        "programCount": n_programs,
+        "batchCount": n_batches,
+        "executionContextNote": f"All {n_programs} documented programs—including multi-year tenders with earlier scheduled dates that have not yet started physical execution—are active in this tracker for review, consultant specification, and civil contractor pursuit.",
         "productsCatalog": NAUE_PRODUCTS_CATALOG,
         "projects": projects,
     }
